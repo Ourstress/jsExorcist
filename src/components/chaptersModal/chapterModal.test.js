@@ -4,7 +4,7 @@ import ChaptersModal from "./index";
 test("render bootstrap modal", async () => {
   render(<ChaptersModal />);
 
-  // renders accordion element
+  // renders modal
   expect(screen.getByLabelText("modal")).toBeInTheDocument();
 });
 
