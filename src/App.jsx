@@ -1,6 +1,6 @@
-import Book from "./components/book";
+import Chapter from "./components/chapter";
 function App() {
-  return <Book />;
+  return <Chapter />;
 }
 
 export default App;
