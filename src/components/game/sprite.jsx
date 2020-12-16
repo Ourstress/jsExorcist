@@ -1,16 +1,27 @@
 import ghost1 from "./images/cute_ghost.png";
 import ghost2 from "./images/cute_ghost_2.png";
 import ghost3 from "./images/cute_ghost_3.png";
+import React, { memo } from "react";
+
+function areEqual(prevProps, nextProps) {
+  return prevProps.dataBsToggle === nextProps.dataBsToggle;
+}
 
 function Sprite(props) {
   const getRandomInt = (max) => Math.floor(Math.random() * Math.floor(max));
   const ghostImages = [ghost1, ghost2, ghost3];
   const getGhostImg = () => ghostImages[getRandomInt(3)];
-  const { dataBsToggle, dataBsTarget } = props;
+  const { dataBsToggle, dataBsTarget, clickFn } = props;
   return (
     <button
       type="button"
-      style={{ width: "min-content", backgroundColor: "white", border: "none" }}
+      style={{
+        width: "min-content",
+        backgroundColor: "white",
+        border: "none",
+        cursor: "default",
+      }}
+      onClick={clickFn}
     >
       <img
         src={getGhostImg()}
@@ -19,6 +30,7 @@ function Sprite(props) {
           minWidth: "80px",
           margin: `${getRandomInt(3) * 10}px`,
           transform: `rotate(${Math.random() * 360}deg)`,
+          cursor: "pointer",
         }}
         aria-label="ghost"
         alt="ghost"
@@ -29,4 +41,4 @@ function Sprite(props) {
   );
 }
 
-export default Sprite;
+export default memo(Sprite, areEqual);
