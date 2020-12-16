@@ -1,5 +1,5 @@
 function SpriteModal(props) {
-  const { modalId } = props;
+  const { modalId, modalContent } = props;
   return (
     <div
       className="modal fade"
@@ -13,6 +13,7 @@ function SpriteModal(props) {
           <div className="modal-header">
             <h5 className="modal-title">Modal title</h5>
           </div>
+          <div className="modal-body">{modalContent}</div>
         </div>
       </div>
     </div>
