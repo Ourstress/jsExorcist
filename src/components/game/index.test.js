@@ -8,3 +8,10 @@ test("render images", async () => {
   const ghosts = await screen.findAllByLabelText("ghost");
   expect(ghosts).toHaveLength(10);
 });
+
+test("clicking on image shows modal", async () => {
+  render(<Game />);
+
+  // renders 10 ghosts
+  expect(await screen.findAllByLabelText("modal")).not.toBeNull();
+});
