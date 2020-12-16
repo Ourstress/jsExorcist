@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import Chapter from "./index";
+import Chapter from "./chapter";
 
 test("render bootstrap accordion", async () => {
   render(<Chapter />);
