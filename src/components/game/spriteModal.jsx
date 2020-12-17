@@ -5,7 +5,10 @@ function SpriteModal(props) {
   useEffect(() => {
     // eslint-disable-next-line
     eval(
-      "var popover = new bootstrap.Popover(document.querySelector('.btn.btn-primary.popoverclass'), {trigger: 'focus'})"
+      `
+      var popoverTriggerList = Array.from(document.querySelectorAll('.btn.btn-primary.popoverclass'));
+      var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {return new bootstrap.Popover(popoverTriggerEl)})
+      `
     );
   }, []);
   return (
