@@ -1,20 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function SpriteModal(props) {
   const { modalId, modalContent } = props;
-  useEffect(() => {
-    // eslint-disable-next-line
-    eval(
-      `
-      var popoverTriggerList = Array.from(document.querySelectorAll('.btn.btn-outline-primary.popoverclass'));
-      var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {return new bootstrap.Popover(popoverTriggerEl)})
-      `
-    );
-  }, []);
-  const [answer, setAnswer] = useState("answer");
+  const [answer, setAnswer] = useState("");
   const checkAnswer = () =>
     window.alert(
-      modalContent.answer.includes(answer) ? "answer correct" : "wrong answer"
+      modalContent.answer === answer ? "answer correct" : "wrong answer"
     );
   return (
     <div
@@ -36,9 +27,9 @@ function SpriteModal(props) {
               <input
                 type="text"
                 className="form-control"
-                placeholder="Answer"
                 aria-label="Answer"
                 aria-describedby={modalContent.title}
+                placeholder="answer here!"
                 value={answer}
                 onChange={(e) => setAnswer(e.target.value)}
               />
