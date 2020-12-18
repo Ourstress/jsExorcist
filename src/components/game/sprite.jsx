@@ -2,6 +2,7 @@ import ghost1 from "./images/cute_ghost.png";
 import ghost2 from "./images/cute_ghost_2.png";
 import ghost3 from "./images/cute_ghost_3.png";
 import React, { memo } from "react";
+import { animated } from "react-spring";
 
 function areEqual(prevProps, nextProps) {
   return prevProps.dataBsToggle === nextProps.dataBsToggle;
@@ -11,15 +12,16 @@ function Sprite(props) {
   const getRandomInt = (max) => Math.floor(Math.random() * Math.floor(max));
   const ghostImages = [ghost1, ghost2, ghost3];
   const getGhostImg = () => ghostImages[getRandomInt(3)];
-  const { dataBsToggle, dataBsTarget, clickFn } = props;
+  const { dataBsToggle, dataBsTarget, clickFn, springProps } = props;
   return (
-    <button
+    <animated.button
       type="button"
       style={{
         width: "min-content",
         backgroundColor: "white",
         border: "none",
         cursor: "default",
+        ...springProps,
       }}
       onClick={clickFn}
     >
@@ -37,7 +39,7 @@ function Sprite(props) {
         data-bs-toggle={dataBsToggle}
         data-bs-target={dataBsTarget}
       />
-    </button>
+    </animated.button>
   );
 }
 

@@ -1,6 +1,7 @@
 import Sprite from "./sprite";
 import SpriteModal from "./spriteModal";
 import { useState, useEffect } from "react";
+import { useTransition } from "react-spring";
 
 function Game() {
   useEffect(() => {
@@ -121,16 +122,23 @@ function Game() {
   const questionsToRender = questions
     .filter((question) => question.status !== "found correct answer!")
     .slice(0, 10);
+
+  const transitions = useTransition(questionsToRender, (qn) => qn.title, {
+    enter: { opacity: 1 },
+    leave: { opacity: 0 },
+  });
   return (
     <div>
-      {questionsToRender.map((qn) => (
+      {transitions.map(({ item, props, key }) => (
         <Sprite
-          key={qn.title}
+          key={item.title}
           dataBsToggle="modal"
           dataBsTarget={`#${modalId}`}
-          clickFn={() => setSelectedQn(qn)}
+          clickFn={() => setSelectedQn(item)}
+          springProps={props}
         />
       ))}
+
       <SpriteModal
         modalId={modalId}
         modalContent={selectedQn}
