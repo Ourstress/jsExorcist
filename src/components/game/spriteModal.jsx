@@ -2,12 +2,9 @@ import { useState } from "react";
 import { PauseFill, PlayFill, Check } from "react-bootstrap-icons";
 
 function SpriteModal(props) {
-  const { modalId, modalContent } = props;
+  const { modalId, modalContent, checkAnswer } = props;
   const [answer, setAnswer] = useState("");
-  const checkAnswer = () =>
-    window.alert(
-      modalContent.answer === answer ? "answer correct" : "wrong answer"
-    );
+  const helloAnswer = () => checkAnswer(modalContent, answer);
 
   const statusIcon = () => {
     let component = null;
@@ -54,7 +51,7 @@ function SpriteModal(props) {
                 className="btn btn-primary"
                 type="button"
                 id={modalContent.title}
-                onClick={checkAnswer}
+                onClick={helloAnswer}
               >
                 Submit
               </button>
