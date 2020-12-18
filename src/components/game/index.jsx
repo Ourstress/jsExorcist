@@ -2,6 +2,7 @@ import Sprite from "./sprite";
 import SpriteModal from "./spriteModal";
 import { useState, useEffect } from "react";
 import { useTransition } from "react-spring";
+import jpMtn from "./assets/mountain_pattern.png";
 
 function Game() {
   useEffect(() => {
@@ -132,7 +133,7 @@ function Game() {
     },
   });
   return (
-    <div>
+    <div style={{ backgroundImage: `url(${jpMtn})`, backgroundSize: "cover" }}>
       {transitions.map(({ item, props, key }) => (
         <Sprite
           key={item.title}

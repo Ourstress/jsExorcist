@@ -1,6 +1,6 @@
-import ghost1 from "./images/cute_ghost.png";
-import ghost2 from "./images/cute_ghost_2.png";
-import ghost3 from "./images/cute_ghost_3.png";
+import ghost1 from "./assets/cute_ghost.png";
+import ghost2 from "./assets/cute_ghost_2.png";
+import ghost3 from "./assets/cute_ghost_3.png";
 import React, { memo } from "react";
 import { animated } from "react-spring";
 
@@ -18,7 +18,7 @@ function Sprite(props) {
       type="button"
       style={{
         width: "min-content",
-        backgroundColor: "white",
+        backgroundColor: "transparent",
         border: "none",
         cursor: "default",
         ...springProps,
