@@ -124,8 +124,12 @@ function Game() {
     .slice(0, 10);
 
   const transitions = useTransition(questionsToRender, (qn) => qn.title, {
+    from: { opacity: 0 },
     enter: { opacity: 1 },
     leave: { opacity: 0 },
+    config: {
+      duration: 3000,
+    },
   });
   return (
     <div>
