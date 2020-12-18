@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { PauseFill, PlayFill, Check } from "react-bootstrap-icons";
 
 function SpriteModal(props) {
   const { modalId, modalContent } = props;
@@ -7,6 +8,21 @@ function SpriteModal(props) {
     window.alert(
       modalContent.answer === answer ? "answer correct" : "wrong answer"
     );
+
+  const statusIcon = () => {
+    let component = null;
+    switch (modalContent.status) {
+      case "found correct answer!":
+        component = <Check style={{ fontSize: "1.5rem" }} />;
+        break;
+      case "in progress!":
+        component = <PlayFill style={{ fontSize: "1.5rem" }} />;
+        break;
+      default:
+        component = <PauseFill style={{ fontSize: "1.5rem" }} />;
+    }
+    return component;
+  };
   return (
     <div
       className="modal fade"
@@ -19,6 +35,7 @@ function SpriteModal(props) {
         <div className="modal-content">
           <div className="modal-header">
             <h5 className="modal-title">{modalContent.title}</h5>
+            {statusIcon()}
           </div>
           <div className="modal-body">
             {modalContent.question}
