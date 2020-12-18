@@ -85,6 +85,20 @@ function Game() {
       hint: "i",
       status: "pending attempts",
     },
+    {
+      title: 11,
+      question: "",
+      answer: "",
+      hint: "i",
+      status: "pending attempts",
+    },
+    {
+      title: 12,
+      question: "",
+      answer: "",
+      hint: "i",
+      status: "pending attempts",
+    },
   ]);
   const [selectedQn, setSelectedQn] = useState("");
   const modalId = "spriteModal";
@@ -104,9 +118,12 @@ function Game() {
     copyOfQuestions.splice(questionToUpdateIndex, 1, questionToUpdate);
     updateQuestions(copyOfQuestions);
   };
+  const questionsToRender = questions
+    .filter((question) => question.status !== "found correct answer!")
+    .slice(0, 10);
   return (
     <div>
-      {questions.map((qn) => (
+      {questionsToRender.map((qn) => (
         <Sprite
           key={qn.title}
           dataBsToggle="modal"
