@@ -1,6 +1,6 @@
-import ghost1 from "./assets/cute_ghost.png";
-import ghost2 from "./assets/cute_ghost_2.png";
-import ghost3 from "./assets/cute_ghost_3.png";
+import ghost1 from "../../assets/cute_ghost.png";
+import ghost2 from "../../assets/cute_ghost_2.png";
+import ghost3 from "../../assets/cute_ghost_3.png";
 import React, { memo } from "react";
 import { animated } from "react-spring";
 

@@ -2,7 +2,7 @@ import Sprite from "./sprite";
 import SpriteModal from "./spriteModal";
 import { useState, useEffect } from "react";
 import { useTransition } from "react-spring";
-import jpMtn from "./assets/mountain_pattern.png";
+import jpMtn from "../../assets/mountain_pattern.png";
 
 function Game() {
   useEffect(() => {
