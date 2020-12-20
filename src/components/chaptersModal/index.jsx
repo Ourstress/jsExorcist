@@ -5,7 +5,7 @@ function ChaptersModal() {
     <section>
       <button
         type="button"
-        className="btn btn-primary"
+        className="btn"
         data-bs-toggle="modal"
         data-bs-target="#chaptersModal"
       >

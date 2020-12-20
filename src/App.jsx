@@ -1,6 +1,6 @@
-import ChapterModal from "./components/chaptersModal";
 import Game from "./components/game";
 import Story from "./components/story";
+import Navbar from "./components/navbar";
 import jpMtn from "./assets/mountain_pattern.png";
 function App() {
   return (
@@ -11,9 +11,9 @@ function App() {
         height: "100vh",
       }}
     >
+      <Navbar />
       <main className="container">
         <Game />
-        <ChapterModal />
         <Story />
       </main>
     </div>
