@@ -1,13 +1,22 @@
 import ChapterModal from "./components/chaptersModal";
 import Game from "./components/game";
 import Story from "./components/story";
+import jpMtn from "./assets/mountain_pattern.png";
 function App() {
   return (
-    <main className="container my-3">
-      <Game />
-      <ChapterModal />
-      <Story />
-    </main>
+    <div
+      style={{
+        backgroundImage: `url(${jpMtn})`,
+        backgroundSize: "cover",
+        height: "100vh",
+      }}
+    >
+      <main className="container">
+        <Game />
+        <ChapterModal />
+        <Story />
+      </main>
+    </div>
   );
 }
 

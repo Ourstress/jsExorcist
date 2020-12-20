@@ -7,7 +7,7 @@ function Story() {
         src={waves}
         className="card-img"
         alt="waves"
-        style={{ objectFit: "cover", opacity: 0.2 }}
+        style={{ objectFit: "cover", opacity: 0.2, overflow: "hidden" }}
       />
       <div className="card-img-overlay">
         <h5 className="card-title">Card title</h5>
