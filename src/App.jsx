@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo, useEffect } from "react";
 import Game from "./components/game";
 import Story from "./components/story";
 import Navbar from "./components/navbar";
@@ -101,11 +101,32 @@ function App() {
         ],
       },
     ],
+    [
+      "chapter 2",
+      {
+        name: "chapter 2",
+        story:
+          "Welcome apprentice exorcist! The very basics are knowing console.log and javascript objects!",
+        questions: [
+          {
+            title: 1,
+            question: "hello",
+            answer: "",
+            hint: "i",
+            status: "pending attempts",
+          },
+        ],
+      },
+    ],
   ]);
   const [storyDisplay, toggleStoryDisplay] = useState(true);
 
-  const currentChapterIndex = Array.from(gameState.keys())[0];
-  const currentChapter = gameState.get(currentChapterIndex);
+  const [currentChapterIndex, setCurrentChapterIndex] = useState(0);
+
+  const currentChapter = useMemo(() => {
+    return gameState.get(Array.from(gameState.keys())[currentChapterIndex]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentChapterIndex]);
 
   const [questions, updateQuestions] = useState(currentChapter.questions);
 
@@ -126,6 +147,24 @@ function App() {
     updateQuestions(copyOfQuestions);
   };
 
+  const readyNextChapter = useMemo(() => {
+    return (
+      questions.filter(
+        (question) => question.status !== "found correct answer!"
+      ).length === 0
+    );
+  }, [questions]);
+
+  useEffect(() => {
+    if (readyNextChapter) {
+      setCurrentChapterIndex(currentChapterIndex + 1);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [readyNextChapter]);
+
+  useEffect(() => {
+    updateQuestions(currentChapter.questions);
+  }, [currentChapter]);
   return (
     <div
       style={{
