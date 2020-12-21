@@ -3,6 +3,17 @@ import Story from "./components/story";
 import Navbar from "./components/navbar";
 import jpMtn from "./assets/mountain_pattern.png";
 function App() {
+  const gameState = new Map([
+    [
+      "chapter 1",
+      {
+        story:
+          "Welcome apprentice exorcist! The very basics are knowing console.log and javascript objects!",
+      },
+    ],
+  ]);
+  const currentChapterIndex = Array.from(gameState.keys())[0];
+  const currentChapter = gameState.get(currentChapterIndex);
   return (
     <div
       style={{
@@ -14,7 +25,7 @@ function App() {
       <Navbar />
       <main className="container">
         <Game />
-        <Story />
+        <Story currentChapter={currentChapter} />
       </main>
     </div>
   );

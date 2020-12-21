@@ -2,7 +2,8 @@ import { useState } from "react";
 import waves from "../../assets/waves.png";
 import { useTransition, animated } from "react-spring";
 
-function Story() {
+function Story(props) {
+  const { currentChapter } = props;
   const [storyDisplay, toggleStoryDisplay] = useState(true);
   const transitions = useTransition(storyDisplay, null, {
     enter: { opacity: 1 },
@@ -34,7 +35,7 @@ function Story() {
                 onClick={() => toggleStoryDisplay(!storyDisplay)}
               ></button>
             </section>
-            <p className="card-text">hello.</p>
+            <p className="card-text">{currentChapter.story}</p>
           </div>
         </animated.div>
       )
