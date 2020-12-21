@@ -168,12 +168,11 @@ function App() {
   }, [currentChapter]);
   return (
     <div
+      className="d-flex flex-column"
       style={{
         backgroundImage: `url(${jpMtn})`,
         backgroundSize: "cover",
         minHeight: "100vh",
-        display: "flex",
-        flexDirection: "column",
       }}
     >
       <Navbar
@@ -183,11 +182,8 @@ function App() {
         questions={questions}
       />
       <main
-        className="container"
+        className="container d-flex flex-column flex-grow-2"
         style={{
-          display: "flex",
-          flexDirection: "column",
-          flexGrow: 2,
           justifyContent: "space-between",
         }}
       >

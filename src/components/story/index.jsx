@@ -16,7 +16,7 @@ function Story(props) {
           }}
           key={key}
         >
-          <section style={{ display: "flex", justifyContent: "space-between" }}>
+          <section className="d-flex justify-content-between">
             <h5 className="card-title">Card title</h5>
             <button
               type="button"

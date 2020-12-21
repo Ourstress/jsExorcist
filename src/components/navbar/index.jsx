@@ -11,7 +11,7 @@ function Navbar(props) {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
-        <span className="navbar-brand">JS excorcist</span>
+        <span className="navbar-brand">JS Exorcist</span>
         <button
           className="navbar-toggler"
           type="button"
@@ -34,7 +34,7 @@ function Navbar(props) {
               {`Progress: ${currentChapter.name}`}
             </button>
             <span style={{ padding: "0.375rem 0.75rem" }}>
-              {`Exorcised: ${exorcisedGhosts} ghost`}
+              {`Exorcised: ${exorcisedGhosts} 👻`}
             </span>
           </div>
         </div>
