@@ -1,9 +1,7 @@
-import { useState } from "react";
 import { useTransition, animated } from "react-spring";
 
 function Story(props) {
-  const { currentChapter } = props;
-  const [storyDisplay, toggleStoryDisplay] = useState(true);
+  const { currentChapter, storyDisplay, toggleStoryDisplay } = props;
   const transitions = useTransition(storyDisplay, null, {
     enter: { opacity: 0.9 },
     leave: { opacity: 0 },

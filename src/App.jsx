@@ -1,7 +1,9 @@
+import { useState } from "react";
 import Game from "./components/game";
 import Story from "./components/story";
 import Navbar from "./components/navbar";
 import jpMtn from "./assets/mountain_pattern.png";
+
 function App() {
   const gameState = new Map([
     [
@@ -100,6 +102,8 @@ function App() {
       },
     ],
   ]);
+  const [storyDisplay, toggleStoryDisplay] = useState(true);
+
   const currentChapterIndex = Array.from(gameState.keys())[0];
   const currentChapter = gameState.get(currentChapterIndex);
   return (
@@ -112,7 +116,11 @@ function App() {
         flexDirection: "column",
       }}
     >
-      <Navbar currentChapter={currentChapter} />
+      <Navbar
+        currentChapter={currentChapter}
+        storyDisplay={storyDisplay}
+        toggleStoryDisplay={toggleStoryDisplay}
+      />
       <main
         className="container"
         style={{
@@ -123,7 +131,11 @@ function App() {
         }}
       >
         <Game currentChapter={currentChapter} />
-        <Story currentChapter={currentChapter} />
+        <Story
+          currentChapter={currentChapter}
+          storyDisplay={storyDisplay}
+          toggleStoryDisplay={toggleStoryDisplay}
+        />
       </main>
     </div>
   );

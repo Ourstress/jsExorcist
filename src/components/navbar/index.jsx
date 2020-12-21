@@ -1,7 +1,7 @@
 import ChapterModal from "../chaptersModal";
 
 function Navbar(props) {
-  const { currentChapter } = props;
+  const { currentChapter, storyDisplay, toggleStoryDisplay } = props;
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
@@ -20,9 +20,13 @@ function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
             <ChapterModal currentChapter={currentChapter} />
-            <span style={{ padding: "0.375rem 0.75rem" }}>
+            <button
+              type="button"
+              className="btn"
+              onClick={() => toggleStoryDisplay(!storyDisplay)}
+            >
               Progress:{currentChapter.name}
-            </span>
+            </button>
             <span style={{ padding: "0.375rem 0.75rem" }}>
               Exorcised:
               {
