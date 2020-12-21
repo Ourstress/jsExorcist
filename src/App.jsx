@@ -106,11 +106,21 @@ function App() {
       style={{
         backgroundImage: `url(${jpMtn})`,
         backgroundSize: "cover",
-        height: "100vh",
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
       }}
     >
       <Navbar currentChapter={currentChapter} />
-      <main className="container">
+      <main
+        className="container"
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          flexGrow: 2,
+          justifyContent: "space-between",
+        }}
+      >
         <Game currentChapter={currentChapter} />
         <Story currentChapter={currentChapter} />
       </main>
