@@ -1,6 +1,7 @@
 import ChapterModal from "../chaptersModal";
 
-function Navbar() {
+function Navbar(props) {
+  const { currentChapter } = props;
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
@@ -18,7 +19,7 @@ function Navbar() {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
-            <ChapterModal />
+            <ChapterModal currentChapter={currentChapter} />
           </div>
         </div>
       </div>

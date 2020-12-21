@@ -1,6 +1,8 @@
 import Chapter from "./chapter";
 
-function ChaptersModal() {
+function ChaptersModal(props) {
+  const { currentChapter } = props;
+  const data = currentChapter ? currentChapter.questions : [];
   return (
     <section>
       <button
@@ -28,7 +30,7 @@ function ChaptersModal() {
               </h5>
             </div>
             <div className="modal-body">
-              <Chapter />
+              <Chapter data={data} />
             </div>
             <div className="modal-footer">
               <button

@@ -1,14 +1,5 @@
-function Chapter() {
-  const data = [
-    {
-      name: "Chapter 1",
-      content: "This is! <code>print('hello world abacadabra')</code>",
-    },
-    // {
-    //   name: "Chapter 2",
-    //   content: "dummy data",
-    // },
-  ];
+function Chapter(props) {
+  const { data } = props;
   return (
     <section>
       <div className="accordion" id="chapterAccordion" aria-label="accordion">
@@ -23,7 +14,7 @@ function Chapter() {
                 aria-expanded="false"
                 aria-controls={"collapse" + index}
               >
-                {dataItem.name}
+                {dataItem.title}
               </button>
             </h2>
             <div
