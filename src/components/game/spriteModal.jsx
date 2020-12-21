@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { PauseFill, PlayFill, Check } from "react-bootstrap-icons";
+import { QUESTIONSTATUS } from "../../data/constants";
 
 function SpriteModal(props) {
   const { modalId, modalContent, checkAnswer } = props;
@@ -9,10 +10,10 @@ function SpriteModal(props) {
   const statusIcon = () => {
     let component = null;
     switch (modalContent.status) {
-      case "found correct answer!":
+      case QUESTIONSTATUS.correct:
         component = <Check style={{ fontSize: "1.5rem" }} />;
         break;
-      case "in progress!":
+      case QUESTIONSTATUS.trying:
         component = <PlayFill style={{ fontSize: "1.5rem" }} />;
         break;
       default:
