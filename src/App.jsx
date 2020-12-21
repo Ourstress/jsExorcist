@@ -106,6 +106,26 @@ function App() {
 
   const currentChapterIndex = Array.from(gameState.keys())[0];
   const currentChapter = gameState.get(currentChapterIndex);
+
+  const [questions, updateQuestions] = useState(currentChapter.questions);
+
+  const checkAnswer = (question, answerAttempt) => {
+    const answerCorrect = question.answer === answerAttempt;
+    const questionToUpdate = questions.find(
+      (item) => item.title === question.title
+    );
+    const questionToUpdateIndex = questions.findIndex(
+      (item) => item.title === question.title
+    );
+    answerCorrect
+      ? (questionToUpdate.status = "found correct answer!")
+      : (questionToUpdate.status = "in progress!");
+
+    const copyOfQuestions = [...questions];
+    copyOfQuestions.splice(questionToUpdateIndex, 1, questionToUpdate);
+    updateQuestions(copyOfQuestions);
+  };
+
   return (
     <div
       style={{
@@ -120,6 +140,7 @@ function App() {
         currentChapter={currentChapter}
         storyDisplay={storyDisplay}
         toggleStoryDisplay={toggleStoryDisplay}
+        questions={questions}
       />
       <main
         className="container"
@@ -130,7 +151,7 @@ function App() {
           justifyContent: "space-between",
         }}
       >
-        <Game currentChapter={currentChapter} />
+        <Game questions={questions} checkAnswer={checkAnswer} />
         <Story
           currentChapter={currentChapter}
           storyDisplay={storyDisplay}

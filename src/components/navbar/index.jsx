@@ -1,7 +1,13 @@
+import { useMemo } from "react";
 import ChapterModal from "../chaptersModal";
 
 function Navbar(props) {
-  const { currentChapter, storyDisplay, toggleStoryDisplay } = props;
+  const { currentChapter, storyDisplay, toggleStoryDisplay, questions } = props;
+  const exorcisedGhosts = useMemo(() => {
+    return questions.filter(
+      (question) => question.status === "found correct answer!"
+    ).length;
+  }, [questions]);
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
@@ -25,16 +31,10 @@ function Navbar(props) {
               className="btn"
               onClick={() => toggleStoryDisplay(!storyDisplay)}
             >
-              Progress:{currentChapter.name}
+              {`Progress: ${currentChapter.name}`}
             </button>
             <span style={{ padding: "0.375rem 0.75rem" }}>
-              Exorcised:
-              {
-                currentChapter.questions.filter(
-                  (question) => question.status === "found correct answer!"
-                ).length
-              }
-              ghost
+              {`Exorcised: ${exorcisedGhosts} ghost`}
             </span>
           </div>
         </div>
