@@ -151,8 +151,9 @@ function App() {
     return (
       questions.filter(
         (question) => question.status !== "found correct answer!"
-      ).length === 0
+      ).length === 0 && gameState.length > currentChapterIndex
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [questions]);
 
   useEffect(() => {
