@@ -20,6 +20,18 @@ function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
             <ChapterModal currentChapter={currentChapter} />
+            <span style={{ padding: "0.375rem 0.75rem" }}>
+              Progress:{currentChapter.name}
+            </span>
+            <span style={{ padding: "0.375rem 0.75rem" }}>
+              Exorcised:
+              {
+                currentChapter.questions.filter(
+                  (question) => question.status === "found correct answer!"
+                ).length
+              }
+              ghost
+            </span>
           </div>
         </div>
       </div>
