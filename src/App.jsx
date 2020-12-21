@@ -5,16 +5,14 @@ import Navbar from "./components/navbar";
 import jpMtn from "./assets/mountain_pattern.png";
 import gameState from "./data/gameState";
 import { QUESTIONSTATUS } from "./data/constants";
+import useGame from "./hooks/useGame.js";
 
 function App() {
   const [storyDisplay, toggleStoryDisplay] = useState(true);
 
-  const [currentChapterIndex, setCurrentChapterIndex] = useState(0);
-
-  const currentChapter = useMemo(() => {
-    return gameState.get(Array.from(gameState.keys())[currentChapterIndex]);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentChapterIndex]);
+  const [currentChapter, currentChapterIndex, setCurrentChapterIndex] = useGame(
+    gameState
+  );
 
   const [questions, updateQuestions] = useState(currentChapter.questions);
 
