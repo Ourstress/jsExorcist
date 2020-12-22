@@ -3,7 +3,7 @@ import Game from "./components/game";
 import Story from "./components/story";
 import Navbar from "./components/navbar";
 import jpMtn from "./assets/mountain_pattern.png";
-import gameState from "./data/gameState";
+import { gameData, gameState } from "./data/gameState";
 import { QUESTIONSTATUS } from "./data/constants";
 import useGame from "./hooks/useGame.js";
 
@@ -11,10 +11,31 @@ function App() {
   const [storyDisplay, toggleStoryDisplay] = useState(true);
 
   const [currentChapter, currentChapterIndex, setCurrentChapterIndex] = useGame(
-    gameState
+    gameData
   );
 
-  const [questions, updateQuestions] = useState(currentChapter.questions);
+  const chapQnsLinkState = () => {
+    const questionsClone = JSON.parse(JSON.stringify(currentChapter.questions));
+    // check gameState has at least one entry for current chapter
+    if (
+      gameState &&
+      gameState.chapters.hasOwnProperty(currentChapter.name) &&
+      Object.keys(gameState.chapters[currentChapter.name]).length !== 0
+    ) {
+      questionsClone.forEach((question) => {
+        if (gameState.chapters[currentChapter.name][question.id])
+          question.status = gameState.chapters[currentChapter.name][question.id]
+            ? gameState.chapters[currentChapter.name][question.id]["status"]
+            : QUESTIONSTATUS.pending;
+      });
+    } else {
+      questionsClone.forEach(
+        (question) => (question.status = QUESTIONSTATUS.pending)
+      );
+    }
+    return questionsClone;
+  };
+  const [questions, updateQuestions] = useState(chapQnsLinkState());
 
   const checkAnswer = (question, answerAttempt) => {
     const answerCorrect = question.answer === answerAttempt;

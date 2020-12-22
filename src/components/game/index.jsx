@@ -2,6 +2,7 @@ import Sprite from "./sprite";
 import SpriteModal from "./spriteModal";
 import { useState, useEffect } from "react";
 import { useTransition } from "react-spring";
+import { QUESTIONSTATUS } from "../../data/constants";
 
 function Game(props) {
   useEffect(() => {
@@ -18,7 +19,7 @@ function Game(props) {
   const modalId = "spriteModal";
 
   const questionsToRender = questions
-    .filter((question) => question.status !== "found correct answer!")
+    .filter((question) => question.status !== QUESTIONSTATUS.correct)
     .slice(0, 10);
 
   const transitions = useTransition(questionsToRender, (qn) => qn.title, {

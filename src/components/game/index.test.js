@@ -22,7 +22,7 @@ beforeEach(() => {
       },
     ],
   };
-  render(<Game currentChapter={currentChapter} />);
+  render(<Game questions={currentChapter.questions} />);
 });
 test("render images", async () => {
   // renders 1 ghost
