@@ -36,6 +36,12 @@ function App() {
   };
   const [questions, updateQuestions] = useState(chapQnsLinkState());
 
+  useEffect(() => {
+    if (gameState.overall.currentChapter !== currentChapterIndex) {
+      updateQuestions(chapQnsLinkState());
+    }
+    // eslint-disable-next-line
+  }, [currentChapter]);
   const checkAnswer = (question, answerAttempt) => {
     const answerCorrect = question.answer === answerAttempt;
     const questionToUpdate = questions.find(
@@ -56,9 +62,8 @@ function App() {
   const readyNextChapter = useMemo(() => {
     return (
       questions.filter((question) => question.status !== QUESTIONSTATUS.correct)
-        .length === 0 && gameState.length > currentChapterIndex
+        .length === 0
     );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [questions]);
 
   useEffect(() => {
@@ -68,9 +73,6 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [readyNextChapter]);
 
-  useEffect(() => {
-    updateQuestions(currentChapter.questions);
-  }, [currentChapter]);
   return (
     <div
       className="d-flex flex-column"
