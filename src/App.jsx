@@ -1,10 +1,9 @@
-import { useState, useMemo, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Game from "./components/game";
 import Story from "./components/story";
 import Navbar from "./components/navbar";
 import jpMtn from "./assets/mountain_pattern.png";
 import { gameData, gameState } from "./data/gameState";
-import { QUESTIONSTATUS } from "./data/constants";
 import useGameData from "./hooks/useGameData.js";
 import useGameState from "./hooks/useGameState";
 
@@ -17,20 +16,10 @@ function App() {
     setCurrentChapterIndex,
   ] = useGameData(gameData);
 
-  const [
-    questions,
-    updateQuestions,
-    chapQnsLinkState,
-    checkAnswer,
-    readyNextChapter,
-  ] = useGameState(currentChapter, gameState);
-
-  useEffect(() => {
-    if (gameState.overall.currentChapter !== currentChapterIndex) {
-      updateQuestions(chapQnsLinkState());
-    }
-    // eslint-disable-next-line
-  }, [currentChapter]);
+  const [questions, checkAnswer, readyNextChapter] = useGameState(
+    currentChapter,
+    gameState
+  );
 
   useEffect(() => {
     if (readyNextChapter) {

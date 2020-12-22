@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { QUESTIONSTATUS } from "../data/constants";
 
 function useGameState(currentChapter, gameState) {
@@ -31,6 +31,16 @@ function useGameState(currentChapter, gameState) {
     );
   }, [questions]);
 
+  useEffect(() => {
+    if (
+      JSON.stringify(currentChapter.questions[0]["title"]) !==
+      JSON.stringify(questions[0]["title"])
+    ) {
+      updateQuestions(chapQnsLinkState());
+    }
+    // eslint-disable-next-line
+  }, [currentChapter]);
+
   const checkAnswer = (question, answerAttempt) => {
     const answerCorrect = question.answer === answerAttempt;
     const questionToUpdate = questions.find(
@@ -48,12 +58,6 @@ function useGameState(currentChapter, gameState) {
     updateQuestions(copyOfQuestions);
   };
 
-  return [
-    questions,
-    updateQuestions,
-    chapQnsLinkState,
-    checkAnswer,
-    readyNextChapter,
-  ];
+  return [questions, checkAnswer, readyNextChapter];
 }
 export default useGameState;
