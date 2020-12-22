@@ -30,6 +30,13 @@ function Game(props) {
       duration: 3000,
     },
   });
+
+  const updateQuestion = (item) => {
+    const selectedItem = questions.find(
+      (question) => question.title === item.title
+    );
+    setSelectedQn(selectedItem);
+  };
   return (
     <div>
       {transitions.map(({ item, props, key }) => (
@@ -37,7 +44,9 @@ function Game(props) {
           key={item.title}
           dataBsToggle="modal"
           dataBsTarget={`#${modalId}`}
-          clickFn={() => setSelectedQn(item)}
+          clickFn={() => {
+            updateQuestion(item);
+          }}
           springProps={props}
         />
       ))}

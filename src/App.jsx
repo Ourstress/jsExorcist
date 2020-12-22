@@ -23,10 +23,9 @@ function App() {
       Object.keys(gameState.chapters[currentChapter.name]).length !== 0
     ) {
       questionsClone.forEach((question) => {
-        if (gameState.chapters[currentChapter.name][question.id])
-          question.status = gameState.chapters[currentChapter.name][question.id]
-            ? gameState.chapters[currentChapter.name][question.id]["status"]
-            : QUESTIONSTATUS.pending;
+        question.status = gameState.chapters[currentChapter.name][question.id]
+          ? gameState.chapters[currentChapter.name][question.id]["status"]
+          : QUESTIONSTATUS.pending;
       });
     } else {
       questionsClone.forEach(
