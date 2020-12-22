@@ -22,6 +22,7 @@ function App() {
     updateQuestions,
     chapQnsLinkState,
     checkAnswer,
+    readyNextChapter,
   ] = useGameState(currentChapter, gameState);
 
   useEffect(() => {
@@ -30,13 +31,6 @@ function App() {
     }
     // eslint-disable-next-line
   }, [currentChapter]);
-
-  const readyNextChapter = useMemo(() => {
-    return (
-      questions.filter((question) => question.status !== QUESTIONSTATUS.correct)
-        .length === 0
-    );
-  }, [questions]);
 
   useEffect(() => {
     if (readyNextChapter) {
