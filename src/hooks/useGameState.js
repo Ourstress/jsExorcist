@@ -23,6 +23,24 @@ function useGameState(currentChapter, gameState) {
     return questionsClone;
   };
   const [questions, updateQuestions] = useState(chapQnsLinkState());
-  return [questions, updateQuestions, chapQnsLinkState];
+
+  const checkAnswer = (question, answerAttempt) => {
+    const answerCorrect = question.answer === answerAttempt;
+    const questionToUpdate = questions.find(
+      (item) => item.title === question.title
+    );
+    const questionToUpdateIndex = questions.findIndex(
+      (item) => item.title === question.title
+    );
+    answerCorrect
+      ? (questionToUpdate.status = QUESTIONSTATUS.correct)
+      : (questionToUpdate.status = QUESTIONSTATUS.trying);
+
+    const copyOfQuestions = [...questions];
+    copyOfQuestions.splice(questionToUpdateIndex, 1, questionToUpdate);
+    updateQuestions(copyOfQuestions);
+  };
+
+  return [questions, updateQuestions, chapQnsLinkState, checkAnswer];
 }
 export default useGameState;

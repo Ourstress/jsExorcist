@@ -17,10 +17,12 @@ function App() {
     setCurrentChapterIndex,
   ] = useGameData(gameData);
 
-  const [questions, updateQuestions, chapQnsLinkState] = useGameState(
-    currentChapter,
-    gameState
-  );
+  const [
+    questions,
+    updateQuestions,
+    chapQnsLinkState,
+    checkAnswer,
+  ] = useGameState(currentChapter, gameState);
 
   useEffect(() => {
     if (gameState.overall.currentChapter !== currentChapterIndex) {
@@ -28,22 +30,6 @@ function App() {
     }
     // eslint-disable-next-line
   }, [currentChapter]);
-  const checkAnswer = (question, answerAttempt) => {
-    const answerCorrect = question.answer === answerAttempt;
-    const questionToUpdate = questions.find(
-      (item) => item.title === question.title
-    );
-    const questionToUpdateIndex = questions.findIndex(
-      (item) => item.title === question.title
-    );
-    answerCorrect
-      ? (questionToUpdate.status = QUESTIONSTATUS.correct)
-      : (questionToUpdate.status = QUESTIONSTATUS.trying);
-
-    const copyOfQuestions = [...questions];
-    copyOfQuestions.splice(questionToUpdateIndex, 1, questionToUpdate);
-    updateQuestions(copyOfQuestions);
-  };
 
   const readyNextChapter = useMemo(() => {
     return (
