@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function useGame(gameState) {
+function useGameData(gameState) {
   const [currentChapterIndex, setCurrentChapterIndex] = useState(0);
 
   const getChapterNumber = Array.from(gameState.keys())[currentChapterIndex];
@@ -13,4 +13,4 @@ function useGame(gameState) {
   }, [gameState, currentChapterIndex]);
   return [currentChapter, currentChapterIndex, setCurrentChapterIndex];
 }
-export default useGame;
+export default useGameData;
