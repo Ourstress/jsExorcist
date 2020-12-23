@@ -6,14 +6,15 @@ function useGameData(gameData, gameState) {
     initialChapterIndex
   );
 
-  const getChapterNumber = Array.from(gameData.keys())[currentChapterIndex];
+  const gameDataKeys = Array.from(gameData.keys());
+  const chapterNumber = gameDataKeys[currentChapterIndex];
   const [currentChapter, setCurrentChapter] = useState(
-    gameData.get(getChapterNumber)
+    gameData.get(chapterNumber)
   );
   useEffect(() => {
-    const getChapterNumber = Array.from(gameData.keys())[currentChapterIndex];
-    setCurrentChapter(gameData.get(getChapterNumber));
-  }, [gameData, currentChapterIndex]);
+    const chapterNumber = gameDataKeys[currentChapterIndex];
+    setCurrentChapter(gameData.get(chapterNumber));
+  }, [gameData, gameDataKeys, currentChapterIndex]);
   return [currentChapter, currentChapterIndex, setCurrentChapterIndex];
 }
 export default useGameData;

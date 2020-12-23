@@ -31,20 +31,14 @@ function App() {
   const props = { currentChapter, storyDisplay, toggleStoryDisplay };
   return (
     <div
-      className="d-flex flex-column"
+      className="d-flex flex-column min-vh-100"
       style={{
         backgroundImage: `url(${jpMtn})`,
         backgroundSize: "cover",
-        minHeight: "100vh",
       }}
     >
       <Navbar questions={questions} {...props} />
-      <main
-        className="container d-flex flex-column flex-grow-2"
-        style={{
-          justifyContent: "space-between",
-        }}
-      >
+      <main className="container d-flex flex-column flex-grow-2 justify-content-between">
         <Game questions={questions} checkAnswer={checkAnswer} />
         <Story {...props} />
       </main>
