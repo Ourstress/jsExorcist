@@ -28,6 +28,7 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [readyNextChapter]);
 
+  const props = { currentChapter, storyDisplay, toggleStoryDisplay };
   return (
     <div
       className="d-flex flex-column"
@@ -37,12 +38,7 @@ function App() {
         minHeight: "100vh",
       }}
     >
-      <Navbar
-        currentChapter={currentChapter}
-        storyDisplay={storyDisplay}
-        toggleStoryDisplay={toggleStoryDisplay}
-        questions={questions}
-      />
+      <Navbar questions={questions} {...props} />
       <main
         className="container d-flex flex-column flex-grow-2"
         style={{
@@ -50,11 +46,7 @@ function App() {
         }}
       >
         <Game questions={questions} checkAnswer={checkAnswer} />
-        <Story
-          currentChapter={currentChapter}
-          storyDisplay={storyDisplay}
-          toggleStoryDisplay={toggleStoryDisplay}
-        />
+        <Story {...props} />
       </main>
     </div>
   );
