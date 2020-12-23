@@ -36,3 +36,26 @@ test("return questions that combines gameState and gameData", () => {
   };
   expect(result.current[0]).toStrictEqual([updatedQuestion1]);
 });
+
+test("checkanswer changes status to in progress if answer wrong", () => {
+  const { result } = renderHook(() => useGameState(chapter1, gameState));
+  act(() => {
+    result.current[1](chapter1.questions[0], "wrong");
+  });
+  const updatedQuestion1 = {
+    ...chapter1.questions[0],
+    status: "in progress",
+  };
+  expect(result.current[0]).toStrictEqual([updatedQuestion1]);
+});
+
+test("readyNextChapter changes to true when all questions correct", () => {
+  const { result } = renderHook(() => useGameState(chapter1, gameState));
+  expect(result.current[2]).toBe(false);
+
+  act(() => {
+    // this will get the question correct
+    result.current[1](chapter1.questions[0], "");
+  });
+  expect(result.current[2]).toBe(true);
+});
