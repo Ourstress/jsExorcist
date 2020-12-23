@@ -22,11 +22,12 @@ function App() {
   );
 
   useEffect(() => {
-    if (readyNextChapter) {
+    // index starts from 0, so number of chapters = index + 1
+    if (readyNextChapter && gameData.size > currentChapterIndex + 1) {
       setCurrentChapterIndex(currentChapterIndex + 1);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [readyNextChapter]);
+  }, [readyNextChapter, gameData]);
 
   const props = { currentChapter, storyDisplay, toggleStoryDisplay };
   return (
