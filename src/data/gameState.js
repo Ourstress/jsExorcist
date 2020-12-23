@@ -1,3 +1,5 @@
+//react-markdown line break --> two spaces followed by \n
+
 const gameData = new Map([
   [
     "chapter 1",
@@ -8,13 +10,19 @@ const gameData = new Map([
       questions: [
         {
           id: 1,
-          title: "Meet print!",
-          question: 'What is displayed by `print("hello world")`?',
+          title: "Meet console.log!",
+          question: `Within our code, we use the console.log function a lot to help us check that our code is working as expected!  \nWhat is displayed by console.log("hello world")?`,
           answer: "hello world",
           hint:
-            "The *print* function tells the computer to display the value of a python object given to it",
+            "Within our code, we use the console.log function a lot to help us check that our code is working as expected!",
         },
-        { id: 2, title: 2, question: "", answer: "", hint: "a" },
+        {
+          id: 2,
+          title: 2,
+          question: "# Hello, *world*!",
+          answer: "",
+          hint: "a",
+        },
         { id: 3, title: 3, question: "", answer: "", hint: "b" },
         { id: 4, title: 4, question: "", answer: "", hint: "c" },
         { id: 5, title: 5, question: "", answer: "", hint: "d" },

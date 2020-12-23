@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { PauseFill, PlayFill, Check } from "react-bootstrap-icons";
 import { QUESTIONSTATUS } from "../../data/constants";
+import ReactMarkdown from "react-markdown";
 
 function SpriteModal(props) {
   const { modalId, modalContent, checkAnswer } = props;
@@ -21,6 +22,8 @@ function SpriteModal(props) {
     }
     return component;
   };
+  const question = <ReactMarkdown>{modalContent.question}</ReactMarkdown>;
+
   return (
     <div
       className="modal fade"
@@ -36,7 +39,7 @@ function SpriteModal(props) {
             {statusIcon()}
           </div>
           <div className="modal-body">
-            {modalContent.question}
+            {question}
             <hr />
             <div className="input-group mb-3">
               <input
