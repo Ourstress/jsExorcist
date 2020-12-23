@@ -1,16 +1,19 @@
 import { useState, useEffect } from "react";
 
-function useGameData(gameState) {
-  const [currentChapterIndex, setCurrentChapterIndex] = useState(0);
+function useGameData(gameData, gameState) {
+  const initialChapterIndex = gameState.overall.currentChapter;
+  const [currentChapterIndex, setCurrentChapterIndex] = useState(
+    initialChapterIndex
+  );
 
-  const getChapterNumber = Array.from(gameState.keys())[currentChapterIndex];
+  const getChapterNumber = Array.from(gameData.keys())[currentChapterIndex];
   const [currentChapter, setCurrentChapter] = useState(
-    gameState.get(getChapterNumber)
+    gameData.get(getChapterNumber)
   );
   useEffect(() => {
-    const getChapterNumber = Array.from(gameState.keys())[currentChapterIndex];
-    setCurrentChapter(gameState.get(getChapterNumber));
-  }, [gameState, currentChapterIndex]);
+    const getChapterNumber = Array.from(gameData.keys())[currentChapterIndex];
+    setCurrentChapter(gameData.get(getChapterNumber));
+  }, [gameData, currentChapterIndex]);
   return [currentChapter, currentChapterIndex, setCurrentChapterIndex];
 }
 export default useGameData;

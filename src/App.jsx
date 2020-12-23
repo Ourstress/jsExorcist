@@ -14,7 +14,7 @@ function App() {
     currentChapter,
     currentChapterIndex,
     setCurrentChapterIndex,
-  ] = useGameData(gameData);
+  ] = useGameData(gameData, gameState);
 
   const [questions, checkAnswer, readyNextChapter] = useGameState(
     currentChapter,
