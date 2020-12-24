@@ -4,4 +4,8 @@ const QUESTIONSTATUS = {
   correct: "found correct answer!",
 };
 
-export { QUESTIONSTATUS };
+const TAGS = {
+  consoleLog: "console.log",
+  whatIsCode: "what is coding",
+};
+export { QUESTIONSTATUS, TAGS };

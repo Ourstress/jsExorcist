@@ -1,5 +1,7 @@
 //react-markdown line break --> two spaces followed by \n
 
+import { TAGS } from "./constants";
+
 const questions = {
   intro: [
     {
@@ -9,6 +11,7 @@ const questions = {
       answer: "programming",
       hint:
         "What is the term used to describe languages like Python & Javascript?",
+      tags: TAGS.whatIsCode,
     },
     {
       id: 2,
@@ -17,6 +20,7 @@ const questions = {
       answer: "hello world",
       hint:
         "console.log displays the value of code between its round brackets! eg. console.log(1+1) displays 2",
+      tags: TAGS.consoleLog,
     },
     {
       id: 3,
@@ -24,6 +28,7 @@ const questions = {
       question: `The [console](https://unix.stackexchange.com/questions/4126/what-is-the-exact-difference-between-a-terminal-a-shell-a-tty-and-a-con) lets us interact with our computer.  \n  \nThe Javascript console provides a log function (ie. console.log) that we can use to display the value of Javascript objects that we are interested in!  \n  \nAnother word for console is _ _ _ _ _ _ _ _`,
       answer: "terminal",
       hint: "Read the link supplied in the question!",
+      tags: TAGS.consoleLog,
     },
     {
       id: 4,
@@ -32,6 +37,18 @@ const questions = {
       answer: "console.log('hi there')",
       hint:
         "console.log displays the value of *Javascript objects* between its round brackets!  \neg. console.log(1+1) displays 2",
+      tags: TAGS.consoleLog,
+    },
+  ],
+  utilities: [
+    {
+      id: 1,
+      title: "console logging multiple objects",
+      question: `we can log the value of multiple JS objects in a single console.log eg. console.log(1+1,'is',2)  \n   \nhow would you log the variables x and y?`,
+      answer: "console.log(x,y)",
+      hint:
+        "Put the JS objects you wish to log within the round brackets of the console.log function - separated by comma",
+      tags: TAGS.consoleLog,
     },
   ],
 
