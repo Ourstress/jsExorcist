@@ -1,16 +1,40 @@
 //react-markdown line break --> two spaces followed by \n
 
 const questions = {
-  "console.log": [
+  intro: [
     {
       id: 1,
+      title: "What is coding all about?",
+      question: `Coding is about giving our computers instructions - eg. build apps and perform tasks like interacting with websites!  \n  \nWe will be writing code in a _ _ _ _ _ _ _ _ _ _ _  language called Javascript.`,
+      answer: "programming",
+      hint:
+        "What is the term used to describe languages like Python & Javascript?",
+    },
+    {
+      id: 2,
       title: "Meet console.log!",
-      question: `Within our code, we use the console.log function a lot to help us check that our code is working as expected!  \nWhat is displayed by console.log("hello world")?`,
+      question: `Within our code, we use the console.log function a lot to help us check that our code is working as expected!  \n  \nWhat is displayed by console.log("hello world")?`,
       answer: "hello world",
       hint:
-        "Within our code, we use the console.log function a lot to help us check that our code is working as expected!",
+        "console.log displays the value of code between its round brackets! eg. console.log(1+1) displays 2",
+    },
+    {
+      id: 3,
+      title: "What is the console?",
+      question: `The [console](https://unix.stackexchange.com/questions/4126/what-is-the-exact-difference-between-a-terminal-a-shell-a-tty-and-a-con) lets us interact with our computer.  \n  \nThe Javascript console provides a log function (ie. console.log) that we can use to display the value of Javascript objects that we are interested in!  \n  \nAnother word for console is _ _ _ _ _ _ _ _`,
+      answer: "terminal",
+      hint: "Read the link supplied in the question!",
+    },
+    {
+      id: 4,
+      title: "Log something to the console!",
+      question: `what is the code used to display the message "hi there" to the console?`,
+      answer: "console.log('hi there')",
+      hint:
+        "console.log displays the value of *Javascript objects* between its round brackets!  \neg. console.log(1+1) displays 2",
     },
   ],
+
   filler: [
     {
       id: 2,
@@ -31,7 +55,7 @@ const questions = {
     { id: 12, title: 12, question: "", answer: "", hint: "i" },
   ],
 };
-const consoleLogQns = questions["console.log"];
+const introQns = questions["intro"];
 const fillerQns = questions["filler"];
 const gameData = new Map([
   [
@@ -40,7 +64,7 @@ const gameData = new Map([
       name: "chapter 1",
       story:
         "Welcome apprentice exorcist! The very basics are knowing console.log and javascript objects!",
-      questions: [...consoleLogQns, ...fillerQns],
+      questions: [...introQns, ...fillerQns],
     },
   ],
   [
@@ -49,7 +73,7 @@ const gameData = new Map([
       name: "chapter 2",
       story:
         "Welcome apprentice exorcist! The very basics are knowing console.log and javascript objects!",
-      questions: [consoleLogQns[0]],
+      questions: [introQns[0]],
     },
   ],
 ]);
