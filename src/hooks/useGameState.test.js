@@ -1,11 +1,18 @@
 import { renderHook, act } from "@testing-library/react-hooks";
 import useGameState from "./useGameState";
+import { QUESTIONSTATUS } from "../data/constants";
 
 const chapter1 = {
   name: "chapter 1",
   story: "Welcome",
   questions: [
-    { id: 2, title: "chapter 1 question", question: "", answer: "", hint: "a" },
+    {
+      id: 2,
+      title: "chapter 1 question",
+      question: "",
+      answer: ["", "correct answer"],
+      hint: "a",
+    },
   ],
 };
 
@@ -32,7 +39,7 @@ test("return questions that combines gameState and gameData", () => {
   const { result } = renderHook(() => useGameState(chapter1, gameState));
   const updatedQuestion1 = {
     ...chapter1.questions[0],
-    status: "pending attempts",
+    status: QUESTIONSTATUS.pending,
   };
   expect(result.current[0]).toStrictEqual([updatedQuestion1]);
 });
@@ -44,7 +51,19 @@ test("checkanswer changes status to in progress if answer wrong", () => {
   });
   const updatedQuestion1 = {
     ...chapter1.questions[0],
-    status: "in progress",
+    status: QUESTIONSTATUS.trying,
+  };
+  expect(result.current[0]).toStrictEqual([updatedQuestion1]);
+});
+
+test("checkanswer checks for alternate answers", () => {
+  const { result } = renderHook(() => useGameState(chapter1, gameState));
+  act(() => {
+    result.current[1](chapter1.questions[0], "correct answer");
+  });
+  const updatedQuestion1 = {
+    ...chapter1.questions[0],
+    status: QUESTIONSTATUS.correct,
   };
   expect(result.current[0]).toStrictEqual([updatedQuestion1]);
 });

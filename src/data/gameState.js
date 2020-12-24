@@ -34,7 +34,11 @@ const questions = {
       id: 4,
       title: "Log something to the console!",
       question: `what is the code used to display the message "hi there" to the console?`,
-      answer: "console.log('hi there')",
+      answer: [
+        "console.log('hi there')",
+        'console.log("hi there")',
+        "console.log(`hi there`)",
+      ],
       hint:
         "console.log displays the value of *Javascript objects* between its round brackets!  \neg. console.log(1+1) displays 2",
       tags: TAGS.consoleLog,
@@ -45,7 +49,7 @@ const questions = {
       id: 1,
       title: "console logging multiple objects",
       question: `we can log the value of multiple JS objects in a single console.log eg. console.log(1+1,'is',2)  \n   \nhow would you log the variables x and y?`,
-      answer: "console.log(x,y)",
+      answer: ["console.log(x,y)", "console.log(y,x)"],
       hint:
         "Put the JS objects you wish to log within the round brackets of the console.log function - separated by comma",
       tags: TAGS.consoleLog,

@@ -42,7 +42,7 @@ function useGameState(currentChapter, gameState) {
   }, [currentChapter]);
 
   const checkAnswer = (question, answerAttempt) => {
-    const answerCorrect = question.answer === answerAttempt;
+    const answerCorrect = question.answer.includes(answerAttempt);
     const questionToUpdate = questions.find(
       (item) => item.title === question.title
     );
