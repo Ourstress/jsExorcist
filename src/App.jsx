@@ -21,10 +21,11 @@ function App() {
     gameState
   );
 
+  const advanceChapter = () => setCurrentChapterIndex(currentChapterIndex + 1);
   useEffect(() => {
     // index starts from 0, so number of chapters = index + 1
     if (readyNextChapter && gameData.size > currentChapterIndex + 1) {
-      setCurrentChapterIndex(currentChapterIndex + 1);
+      advanceChapter();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [readyNextChapter, gameData]);
@@ -41,7 +42,7 @@ function App() {
       <Navbar questions={questions} {...props} />
       <main className="container d-flex flex-column flex-grow-2 justify-content-between">
         <Game questions={questions} checkAnswer={checkAnswer} />
-        <Story {...props} />
+        <Story {...props} advanceChapter={advanceChapter} />
       </main>
     </div>
   );

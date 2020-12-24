@@ -82,7 +82,7 @@ const gameData = new Map([
   [
     "chapter 1",
     {
-      name: "chapter 1",
+      name: "Intro to Javascript",
       story:
         "Welcome apprentice exorcist! The very basics are knowing console.log and javascript objects!",
       questions: [...introQns, ...fillerQns],
