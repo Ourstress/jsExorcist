@@ -21,10 +21,14 @@ function App() {
     gameState
   );
 
-  const advanceChapter = () => setCurrentChapterIndex(currentChapterIndex + 1);
+  const advanceChapter = () => {
+    if (gameData.size > currentChapterIndex + 1) {
+      setCurrentChapterIndex(currentChapterIndex + 1);
+    }
+  };
   useEffect(() => {
     // index starts from 0, so number of chapters = index + 1
-    if (readyNextChapter && gameData.size > currentChapterIndex + 1) {
+    if (readyNextChapter) {
       advanceChapter();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

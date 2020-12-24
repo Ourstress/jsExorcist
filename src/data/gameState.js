@@ -94,7 +94,7 @@ const gameData = new Map([
       name: "chapter 2",
       story:
         "Welcome apprentice exorcist! The very basics are knowing console.log and javascript objects!",
-      questions: [introQns[0]],
+      questions: [introQns[2]],
     },
   ],
 ]);
