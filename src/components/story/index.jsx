@@ -1,5 +1,5 @@
 import { useTransition, animated } from "react-spring";
-import { ChevronRight } from "react-bootstrap-icons";
+import { ChevronRight, ChevronLeft } from "react-bootstrap-icons";
 
 function Story(props) {
   const {
@@ -7,6 +7,7 @@ function Story(props) {
     storyDisplay,
     toggleStoryDisplay,
     advanceChapter,
+    goPreviousChapter,
   } = props;
   const transitions = useTransition(storyDisplay, null, {
     enter: { opacity: 0.9 },
@@ -24,6 +25,10 @@ function Story(props) {
         >
           <section className="d-flex justify-content-between">
             <h5 className="card-title">{currentChapter.name}</h5>
+            {/* eslint-disable-next-line */}
+            <a className="btn p-0" href="#" onClick={() => goPreviousChapter()}>
+              <ChevronLeft />
+            </a>
             {/* eslint-disable-next-line */}
             <a className="btn p-0" href="#" onClick={() => advanceChapter()}>
               <ChevronRight />

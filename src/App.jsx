@@ -26,6 +26,11 @@ function App() {
       setCurrentChapterIndex(currentChapterIndex + 1);
     }
   };
+  const goPreviousChapter = () => {
+    if (currentChapterIndex !== 0) {
+      setCurrentChapterIndex(currentChapterIndex - 1);
+    }
+  };
   useEffect(() => {
     // index starts from 0, so number of chapters = index + 1
     if (readyNextChapter) {
@@ -46,7 +51,11 @@ function App() {
       <Navbar questions={questions} {...props} />
       <main className="container d-flex flex-column flex-grow-2 justify-content-between">
         <Game questions={questions} checkAnswer={checkAnswer} />
-        <Story {...props} advanceChapter={advanceChapter} />
+        <Story
+          {...props}
+          advanceChapter={advanceChapter}
+          goPreviousChapter={goPreviousChapter}
+        />
       </main>
     </div>
   );
