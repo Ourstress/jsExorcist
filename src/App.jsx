@@ -3,13 +3,15 @@ import Game from "./components/game";
 import Story from "./components/story";
 import Navbar from "./components/navbar";
 import jpMtn from "./assets/mountain_pattern.png";
-import { gameData, gameState } from "./data/gameState";
+import { gameData, gameState as defaultGameState } from "./data/gameState";
 import useGameData from "./hooks/useGameData.js";
 import useGameState from "./hooks/useGameState";
 
 function App() {
   const [storyDisplay, toggleStoryDisplay] = useState(true);
 
+  const gameState =
+    JSON.parse(sessionStorage.getItem("gameState")) || defaultGameState;
   const [
     currentChapter,
     currentChapterIndex,

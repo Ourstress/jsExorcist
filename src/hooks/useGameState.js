@@ -32,6 +32,29 @@ function useGameState(currentChapter, gameState) {
   }, [questions]);
 
   useEffect(() => {
+    const updatedQuestions = questions.reduce((accumulator, question) => {
+      accumulator[question.id] = {
+        status: question.status,
+        title: question.title,
+      };
+      return accumulator;
+    }, {});
+
+    const toBeUpdatedState = { ...gameState };
+    if (JSON.stringify(toBeUpdatedState) !== "{}") {
+      const toBeUpdatedState = { ...gameState };
+      toBeUpdatedState.chapters[currentChapter.name] = updatedQuestions;
+      sessionStorage.setItem(
+        "gameState",
+        JSON.stringify({
+          ...toBeUpdatedState,
+        })
+      );
+    }
+    // eslint-disable-next-line
+  }, [questions]);
+
+  useEffect(() => {
     if (
       JSON.stringify(currentChapter.questions[0]["title"]) !==
       JSON.stringify(questions[0]["title"])
