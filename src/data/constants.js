@@ -8,5 +8,6 @@ const TAGS = {
   consoleLog: "console.log",
   whatIsCode: "what is coding",
   aboutJs: "introducing what Javascript is about",
+  bitBytes: "explaining binary numbers, bits and bytes",
 };
 export { QUESTIONSTATUS, TAGS };
