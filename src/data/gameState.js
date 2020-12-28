@@ -6,7 +6,7 @@ const chapterTitles = {
   chapter1: "Intro to Javascript",
 };
 const questions = {
-  intro: [
+  whatIsCoding: [
     {
       id: 1,
       title: "What is coding all about?",
@@ -16,8 +16,21 @@ const questions = {
         "What is the term used to describe languages like Python & Javascript?",
       tags: TAGS.whatIsCode,
     },
+  ],
+  aboutJs: [
     {
-      id: 2,
+      id: 21,
+      title: "What is Javascript?",
+      question: `You might have heard of programming languages like Java, Python, C etc, so what is [special about Javascript](https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/get-started/ch1.md#the-web-rules-everything-about-js)?  \n  \nJavascript is the language of the _ _ _! [For more info about Javascript's name](https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/get-started/ch1.md#whats-with-that-name)`,
+      answer: ["web"],
+      hint:
+        "Javascript is powering your browser whether on desktop, mobile etc",
+      tags: TAGS.aboutJs,
+    },
+  ],
+  intro: [
+    {
+      id: 31,
       title: "Meet console.log!",
       question: `Within our code, we use the console.log function a lot to help us check that our code is working as expected!  \n  \nWhat is displayed by console.log("hello world")?`,
       answer: ["hello world"],
@@ -67,20 +80,21 @@ const questions = {
       answer: "",
       hint: "a",
     },
-    { id: 23, title: 3, question: "", answer: "", hint: "b" },
-    { id: 24, title: 4, question: "", answer: "", hint: "c" },
-    { id: 25, title: 5, question: "", answer: "", hint: "d" },
-    { id: 26, title: 6, question: "", answer: "", hint: "e" },
-    { id: 27, title: 7, question: "", answer: "", hint: "f" },
-    { id: 28, title: 8, question: "", answer: "", hint: "g" },
-    { id: 29, title: 9, question: "", answer: "", hint: "h" },
-    { id: 30, title: 10, question: "", answer: "", hint: "i" },
-    { id: 31, title: 11, question: "", answer: "", hint: "i" },
-    { id: 32, title: 12, question: "", answer: "", hint: "i" },
+    { id: 2311, title: 3, question: "", answer: "", hint: "b" },
+    { id: 2411, title: 4, question: "", answer: "", hint: "c" },
+    { id: 2511, title: 5, question: "", answer: "", hint: "d" },
+    { id: 2611, title: 6, question: "", answer: "", hint: "e" },
+    { id: 2711, title: 7, question: "", answer: "", hint: "f" },
+    { id: 2811, title: 8, question: "", answer: "", hint: "g" },
+    { id: 2911, title: 9, question: "", answer: "", hint: "h" },
+    { id: 3011, title: 10, question: "", answer: "", hint: "i" },
+    { id: 3111, title: 11, question: "", answer: "", hint: "i" },
+    { id: 3211, title: 12, question: "", answer: "", hint: "i" },
   ],
 };
 const introQns = questions["intro"];
 const fillerQns = questions["filler"];
+const aboutJsQns = questions["aboutJs"];
 const gameData = new Map([
   [
     "chapter 1",
@@ -88,7 +102,7 @@ const gameData = new Map([
       name: chapterTitles.chapter1,
       story:
         "Welcome apprentice exorcist! The very basics are knowing console.log and javascript objects!",
-      questions: [...introQns, ...fillerQns],
+      questions: [...introQns, ...aboutJsQns],
     },
   ],
   [
