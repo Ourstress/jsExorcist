@@ -2,9 +2,6 @@
 
 import { TAGS } from "./constants";
 
-const chapterTitles = {
-  chapter1: "Intro to Javascript",
-};
 const questions = {
   whatIsCoding: [
     {
@@ -94,6 +91,25 @@ const questions = {
       tags: TAGS.bitBytes,
     },
   ],
+  datatypes: [
+    {
+      id: 51,
+      title: "The need for different data types",
+      question: `Think about the data we would want our code to work with... such as numbers or text.  \n  \nEg. we want to be able to do math with numbers like addition / multiplication whereas for text, we might want to convert all the letters to uppercase or lowercase.  \n  \nIn Javascript, every data has to have a data type - like \`Number\` or \`String\`.  \n  \nDifferent data types support different operations.  \n  \nWhat is the data type of 123.02?`,
+      answer: ["Number"],
+      hint:
+        "google JS data types - be careful of capitalisation for the answer!",
+      tags: TAGS.datatypes,
+    },
+    {
+      id: 52,
+      title: "The 6 JS data types",
+      question: `Learning about the [6 data types](http://cs.millersville.edu/~trogers/csci121/2016_fall/lectures/lecture11_notes.html) in Javascript is an essential starting point.  \n  \nThey are \`Number\`, \`String\`, \`Boolean\`, \`Object\`, \`Undefined\` and \`Null\`.\n  \nA good acronym to remember them by could be NO SNUB\n  \nWhich data type does Javascript array belong to?`,
+      answer: ["Object"],
+      hint: "reference the hyperlink in the question",
+      tags: TAGS.datatypes,
+    },
+  ],
   utilities: [
     {
       id: 111,
@@ -105,34 +121,21 @@ const questions = {
       tags: TAGS.consoleLog,
     },
   ],
-
-  filler: [
-    {
-      id: 2211,
-      title: 2,
-      question: "# Hello, *world*!",
-      answer: "",
-      hint: "a",
-    },
-    { id: 2311, title: 3, question: "", answer: "", hint: "b" },
-    { id: 2411, title: 4, question: "", answer: "", hint: "c" },
-    { id: 2511, title: 5, question: "", answer: "", hint: "d" },
-    { id: 2611, title: 6, question: "", answer: "", hint: "e" },
-    { id: 2711, title: 7, question: "", answer: "", hint: "f" },
-    { id: 2811, title: 8, question: "", answer: "", hint: "g" },
-    { id: 2911, title: 9, question: "", answer: "", hint: "h" },
-    { id: 3011, title: 10, question: "", answer: "", hint: "i" },
-    { id: 3111, title: 11, question: "", answer: "", hint: "i" },
-    { id: 3211, title: 12, question: "", answer: "", hint: "i" },
-  ],
 };
 const introQns = [
-  ...questions["consoleLog"],
   ...questions["aboutJs"],
   ...questions["whatIsCoding"],
+  ...questions["consoleLog"],
 ];
-const fillerQns = questions["filler"];
 const bitByteQns = questions["bitBytes"];
+const dataTypeQns = questions["datatypes"];
+
+const chapterTitles = {
+  chapter1: "Intro to Javascript",
+  chapter2: "Bits, bytes and memory",
+  chapter3: "Javascript data types",
+};
+
 const gameData = new Map([
   [
     "chapter 1",
@@ -140,24 +143,24 @@ const gameData = new Map([
       name: chapterTitles.chapter1,
       story:
         "Welcome apprentice exorcist!  \n  \nWe will start off by learning about what Javascript does and get familiar with the console.log function which we will be using frequently.",
-      questions: [...bitByteQns], //[...introQns],
+      questions: introQns,
     },
   ],
   [
     "chapter 2",
     {
-      name: "chapter 2",
+      name: chapterTitles.chapter2,
       story:
-        "Welcome apprentice exorcist! The very basics are knowing console.log and javascript objects!",
-      questions: [introQns[2]],
+        "Next, we will learn more about the inner working of computers such as binary numbers, bits, bytes and memory that Javascript runs on",
+      questions: bitByteQns,
     },
   ],
   [
     "chapter 3",
     {
-      name: "chapter 3",
-      story: "Welcome apprentice exorcist to Chapter 3!",
-      questions: [...fillerQns],
+      name: chapterTitles.chapter3,
+      story: "Mastery of Javascript starts with a grasp of the data types!",
+      questions: dataTypeQns,
     },
   ],
 ]);
