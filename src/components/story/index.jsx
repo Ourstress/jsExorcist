@@ -1,5 +1,6 @@
 import { useTransition, animated } from "react-spring";
 import { ChevronRight, ChevronLeft } from "react-bootstrap-icons";
+import ReactMarkdown from "react-markdown";
 
 function Story(props) {
   const {
@@ -40,7 +41,9 @@ function Story(props) {
               onClick={() => toggleStoryDisplay(!storyDisplay)}
             ></button>
           </section>
-          <p className="card-text">{currentChapter.story}</p>
+          <ReactMarkdown className="card-text">
+            {currentChapter.story}
+          </ReactMarkdown>
         </animated.div>
       )
   );

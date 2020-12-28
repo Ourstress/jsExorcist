@@ -28,7 +28,7 @@ const questions = {
       tags: TAGS.aboutJs,
     },
   ],
-  intro: [
+  consoleLog: [
     {
       id: 31,
       title: "Meet console.log!",
@@ -39,7 +39,7 @@ const questions = {
       tags: TAGS.consoleLog,
     },
     {
-      id: 3,
+      id: 33,
       title: "What is the console?",
       question: `The [console](https://unix.stackexchange.com/questions/4126/what-is-the-exact-difference-between-a-terminal-a-shell-a-tty-and-a-con) lets us interact with our computer.  \n  \nThe Javascript console provides a log function (ie. console.log) that we can use to display the value of Javascript objects that we are interested in!  \n  \nAnother word for console is _ _ _ _ _ _ _ _`,
       answer: ["terminal"],
@@ -47,7 +47,7 @@ const questions = {
       tags: TAGS.consoleLog,
     },
     {
-      id: 4,
+      id: 34,
       title: "Log something to the console!",
       question: `what is the code used to display the message "hi there" to the console?`,
       answer: [
@@ -74,7 +74,7 @@ const questions = {
 
   filler: [
     {
-      id: 22,
+      id: 2211,
       title: 2,
       question: "# Hello, *world*!",
       answer: "",
@@ -92,17 +92,20 @@ const questions = {
     { id: 3211, title: 12, question: "", answer: "", hint: "i" },
   ],
 };
-const introQns = questions["intro"];
+const introQns = [
+  ...questions["consoleLog"],
+  ...questions["aboutJs"],
+  ...questions["whatIsCoding"],
+];
 const fillerQns = questions["filler"];
-const aboutJsQns = questions["aboutJs"];
 const gameData = new Map([
   [
     "chapter 1",
     {
       name: chapterTitles.chapter1,
       story:
-        "Welcome apprentice exorcist! The very basics are knowing console.log and javascript objects!",
-      questions: [...introQns, ...aboutJsQns],
+        "Welcome apprentice exorcist!  \n  \nWe will start off by learning about what Javascript does and get familiar with the console.log function which we will be using frequently.",
+      questions: [...introQns],
     },
   ],
   [
@@ -112,6 +115,14 @@ const gameData = new Map([
       story:
         "Welcome apprentice exorcist! The very basics are knowing console.log and javascript objects!",
       questions: [introQns[2]],
+    },
+  ],
+  [
+    "chapter 3",
+    {
+      name: "chapter 3",
+      story: "Welcome apprentice exorcist to Chapter 3!",
+      questions: [...fillerQns],
     },
   ],
 ]);
