@@ -85,6 +85,14 @@ const questions = {
       hint: "Look up the ASCII table online",
       tags: TAGS.bitBytes,
     },
+    {
+      id: 44,
+      title: "memory",
+      question: `What has bits and bytes got to do with Javascript?  \n  \nUnder the hood, our JS code gets converted to bytes that are stored in the computer hardware called [memory](https://web.stanford.edu/class/cs101/hardware-1.html).  \n  \nEach byte has its own memory address so the computer knows where different parts of the code can be found.  \n  \nJavascript _ _ _ _ _ _ _ _ _ _ _ _ _ manages memory for us - [refer to this link](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)`,
+      answer: ["automatically"],
+      hint: "refer to the link on the last line",
+      tags: TAGS.bitBytes,
+    },
   ],
   utilities: [
     {
