@@ -112,10 +112,36 @@ const questions = {
     {
       id: 53,
       title: "Recognising strings",
-      question: `Strings basically store text. Text is made up of 1 or more characters.  \n  \nThe text stored in a string is surrounded by double or single quotes ie. \`"text"\` or \`'text'\`.  \n  \nWhy are quotes needed to surround the text stored in string?  \n  \nBecause the quotes tell the computer to treat the characters as text instead of executing them eg. \`"console.log('hello')"\` is treated as text whereas \`console.log('hello')\` is executed by the computer  \n  \nWhich of the following isn't a string? "hello', "hi", 'boo'`,
+      question: `Strings basically store text. Text is made up of 1 or more characters.  \n  \nThe text stored in a string is surrounded by double or single quotes or backticks ie. \`"text"\` or \`'text'\` or \`\`text\`\`.  \n  \nWhy are quotes needed to surround the text stored in string?  \n  \nBecause the quotes tell the computer to treat the characters as text instead of executing them eg. \`"console.log('hello')"\` is treated as text whereas \`console.log('hello')\` is executed by the computer  \n  \nWhich of the following isn't a string?\n"hello', "hi", 'boo'`,
       answer: [`"hello'`],
       hint: "check the quotes and include the quotes in your answer!",
       tags: [TAGS.datatypes, TAGS.strings],
+    },
+    {
+      id: 54,
+      title: "Recognising numbers",
+      question: `The number data type is used to store numerical data with or without decimal places.  \n  \nThe numbers don't need to be surrounded by quotes unlike strings.  \n  \nWhich if the following beings to the number type?\nabc,'abc',123,'123'`,
+      answer: ["123"],
+      hint:
+        "number data type only store numerical data and are not surrounded by any quotes",
+      tags: [TAGS.datatypes],
+    },
+    {
+      id: 55,
+      title: "Recognising boolean values",
+      question: `Boolean values are very important to learn because they are heavily heavily used in programming.  \n  \nFirstly, boolean values in Javascript can only take either of 2 values that are opposite of each other - \`true\` or \`false\`  \n  \nas keywords that indicate boolean values, \`true\` or \`false\` are not surrounded by quotes!  \n  \nWhich is a Javascript boolean value?\nTrue, false, "true", False`,
+      answer: ["false"],
+      hint:
+        "notice the capitalisation / quotes ie. False is boolean value in Python but not in JS while 'False' is a string!",
+      tags: [TAGS.datatypes, TAGS.boolean],
+    },
+    {
+      id: 56,
+      title: "Understanding null",
+      question: `\`null\` represents the ***intentional absence*** of any object value. Do remember it means *intentional absence* as you will come across \`null\` many more times in JS programming.  \n  \nLike \`true\` and \`false\`, \`null\` is a special keyword recognised by the computer and doesn't have quotes.  \n  \nSomething in Javascript that is \`null\` doesn't have any _ _ _ _ _`,
+      answer: ["value"],
+      hint: "read the definition of null in the question",
+      tags: [TAGS.datatypes, TAGS.null],
     },
   ],
   utilities: [

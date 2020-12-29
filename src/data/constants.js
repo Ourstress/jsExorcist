@@ -11,5 +11,7 @@ const TAGS = {
   bitBytes: "explaining binary numbers, bits and bytes",
   datatypes: "Javascript data types",
   strings: "JS Strings",
+  boolean: "boolean values",
+  null: "null",
 };
 export { QUESTIONSTATUS, TAGS };
