@@ -11,7 +11,7 @@ const questions = {
       answer: ["programming"],
       hint:
         "What is the term used to describe languages like Python & Javascript?",
-      tags: TAGS.whatIsCode,
+      tags: [TAGS.whatIsCode],
     },
   ],
   aboutJs: [
@@ -22,7 +22,7 @@ const questions = {
       answer: ["web"],
       hint:
         "Javascript is powering your browser whether on desktop, mobile etc",
-      tags: TAGS.aboutJs,
+      tags: [TAGS.aboutJs],
     },
   ],
   consoleLog: [
@@ -33,7 +33,7 @@ const questions = {
       answer: ["hello world"],
       hint:
         "console.log displays the value of code between its round brackets! eg. console.log(1+1) displays 2",
-      tags: TAGS.consoleLog,
+      tags: [TAGS.consoleLog],
     },
     {
       id: 33,
@@ -41,7 +41,7 @@ const questions = {
       question: `The [console](https://unix.stackexchange.com/questions/4126/what-is-the-exact-difference-between-a-terminal-a-shell-a-tty-and-a-con) lets us interact with our computer.  \n  \nThe Javascript console provides a log function (ie. console.log) that we can use to display the value of Javascript objects that we are interested in!  \n  \nAnother word for console is _ _ _ _ _ _ _ _`,
       answer: ["terminal"],
       hint: "Read the link supplied in the question!",
-      tags: TAGS.consoleLog,
+      tags: [TAGS.consoleLog],
     },
     {
       id: 34,
@@ -54,7 +54,7 @@ const questions = {
       ],
       hint:
         "console.log displays the value of *Javascript objects* between its round brackets!  \neg. console.log(1+1) displays 2",
-      tags: TAGS.consoleLog,
+      tags: [TAGS.consoleLog],
     },
   ],
   bitBytes: [
@@ -64,7 +64,7 @@ const questions = {
       question: `While the english language has 26 letters in its alphabet, the alphabet for computers is only two letters - 0 and 1  \n  \nAnother term for 0 and 1 is [binary numbers](https://en.wikipedia.org/wiki/Binary_number) which you would come across frequently too!  \n  \nWhich of the following would be recognised by the computer? - abc, 011, one1`,
       answer: ["011"],
       hint: "The computer only recognises binary numbers",
-      tags: TAGS.bitBytes,
+      tags: [TAGS.bitBytes],
     },
     {
       id: 42,
@@ -72,7 +72,7 @@ const questions = {
       question: `The computer makes use of binary numbers 0 and 1 to do its job.  \n  \nIt can understand sequences of binary numbers like \`011\`, \`1001\` the way we understand \`apple\` or \`boy\` eg. an instruction to do addition looks like \`1000110010100000\`  \n  \nEach "letter" or digit in \`011\`, \`1001\` etc is called a bit.  \n  \n1000 is comprised of how many bits?`,
       answer: ["4", "four"],
       hint: "Each bit of information is either 0 or 1",
-      tags: TAGS.bitBytes,
+      tags: [TAGS.bitBytes],
     },
     {
       id: 43,
@@ -80,7 +80,7 @@ const questions = {
       question: `To store more information, we need a sequence of bits to represent it.  \n  \nA byte is made up of 8 bits. And with 8 bits, a byte let us represent ASCII characters like small and capital english alphabet characters!  \n  \n[More info](https://web.stanford.edu/class/cs101/bits-bytes.html)  \n  \nWhat is the ASCII representation for the capital letter A?`,
       answer: ["65", "1000001"],
       hint: "Look up the ASCII table online",
-      tags: TAGS.bitBytes,
+      tags: [TAGS.bitBytes],
     },
     {
       id: 44,
@@ -88,7 +88,7 @@ const questions = {
       question: `What has bits and bytes got to do with Javascript?  \n  \nUnder the hood, our JS code gets converted to bytes that are stored in the computer hardware called [memory](https://web.stanford.edu/class/cs101/hardware-1.html).  \n  \nEach byte has its own memory address so the computer knows where different parts of the code can be found.  \n  \nJavascript _ _ _ _ _ _ _ _ _ _ _ _ _ manages memory for us - [refer to this link](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)`,
       answer: ["automatically"],
       hint: "refer to the link on the last line",
-      tags: TAGS.bitBytes,
+      tags: [TAGS.bitBytes],
     },
   ],
   datatypes: [
@@ -99,15 +99,23 @@ const questions = {
       answer: ["Number"],
       hint:
         "google JS data types - be careful of capitalisation for the answer!",
-      tags: TAGS.datatypes,
+      tags: [TAGS.datatypes],
     },
     {
       id: 52,
       title: "The 6 JS data types",
-      question: `Learning about the [6 data types](http://cs.millersville.edu/~trogers/csci121/2016_fall/lectures/lecture11_notes.html) in Javascript is an essential starting point.  \n  \nThey are \`Number\`, \`String\`, \`Boolean\`, \`Object\`, \`Undefined\` and \`Null\`.\n  \nA good acronym to remember them by could be NO SNUB\n  \nWhich data type does Javascript array belong to?`,
+      question: `Learning about the [6 data types](http://cs.millersville.edu/~trogers/csci121/2016_fall/lectures/lecture11_notes.html) in Javascript is an essential starting point.  \n  \nThey are \`Number\`, \`String\`, \`Boolean\`, \`Object\`, \`Undefined\` and \`Null\`.(quick note: missing more recently added \`BigInt\` & \`Symbol\`)\n  \nA good acronym to remember them by could be NO SNUB\n  \nWhich data type does Javascript array belong to?`,
       answer: ["Object"],
       hint: "reference the hyperlink in the question",
-      tags: TAGS.datatypes,
+      tags: [TAGS.datatypes],
+    },
+    {
+      id: 53,
+      title: "Recognising strings",
+      question: `Strings basically store text. Text is made up of 1 or more characters.  \n  \nThe text stored in a string is surrounded by double or single quotes ie. \`"text"\` or \`'text'\`.  \n  \nWhy are quotes needed to surround the text stored in string?  \n  \nBecause the quotes tell the computer to treat the characters as text instead of executing them eg. \`"console.log('hello')"\` is treated as text whereas \`console.log('hello')\` is executed by the computer  \n  \nWhich of the following isn't a string? "hello', "hi", 'boo'`,
+      answer: [`"hello'`],
+      hint: "check the quotes and include the quotes in your answer!",
+      tags: [TAGS.datatypes, TAGS.strings],
     },
   ],
   utilities: [

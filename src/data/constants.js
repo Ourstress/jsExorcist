@@ -10,5 +10,6 @@ const TAGS = {
   aboutJs: "introducing what Javascript is about",
   bitBytes: "explaining binary numbers, bits and bytes",
   datatypes: "Javascript data types",
+  strings: "JS Strings",
 };
 export { QUESTIONSTATUS, TAGS };
