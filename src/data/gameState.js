@@ -95,8 +95,8 @@ const questions = {
     {
       id: 51,
       title: "The need for different data types",
-      question: `Think about the data we would want our code to work with... such as numbers or text.  \n  \nEg. we want to be able to do math with numbers like addition / multiplication whereas for text, we might want to convert all the letters to uppercase or lowercase.  \n  \nIn Javascript, every data has to have a data type - like \`Number\` or \`String\`.  \n  \nDifferent data types support different operations.  \n  \nWhat is the data type of 123.02?`,
-      answer: ["Number"],
+      question: `Think about the data we would want our code to work with... such as numbers or text.  \n  \nEg. we want to be able to do math with numbers like addition / multiplication whereas for text, we might want to convert all the letters to uppercase or lowercase.  \n  \nIn Javascript, every data has to have a data type - like \`number\` or \`string\`.  \n  \nDifferent data types support different operations.  \n  \nWhat is the data type of 123.02?`,
+      answer: ["number"],
       hint:
         "google JS data types - be careful of capitalisation for the answer!",
       tags: [TAGS.datatypes],
@@ -104,7 +104,7 @@ const questions = {
     {
       id: 52,
       title: "The 6 JS data types",
-      question: `Learning about the [6 data types](http://cs.millersville.edu/~trogers/csci121/2016_fall/lectures/lecture11_notes.html) in Javascript is an essential starting point.  \n  \nThey are \`Number\`, \`String\`, \`Boolean\`, \`Object\`, \`Undefined\` and \`Null\`.(quick note: missing more recently added \`BigInt\` & \`Symbol\`)\n  \nA good acronym to remember them by could be NO SNUB\n  \nWhich data type does Javascript array belong to?`,
+      question: `Learning about the [6 data types](http://cs.millersville.edu/~trogers/csci121/2016_fall/lectures/lecture11_notes.html) in Javascript is an essential starting point.  \n  \nThey are \`number\`, \`string\`, \`boolean\`, \`object\`, \`undefined\` and \`null\`.(quick note: missing more recently added \`BigInt\` & \`Symbol\`)\n  \nA good acronym to remember them by could be NO SNUB\n  \nWhich data type does Javascript array belong to?`,
       answer: ["Object"],
       hint: "reference the hyperlink in the question",
       tags: [TAGS.datatypes],
@@ -138,17 +138,51 @@ const questions = {
     {
       id: 56,
       title: "Understanding null",
-      question: `\`null\` represents the ***intentional absence*** of any object value. Do remember it means *intentional absence* as you will come across \`null\` many more times in JS programming.  \n  \nLike \`true\` and \`false\`, \`null\` is a special keyword recognised by the computer and doesn't have quotes.  \n  \nSomething in Javascript that is \`null\` doesn't have any _ _ _ _ _`,
+      question: `\`null\` represents the ***intentional absence*** of any value (note that value here doesn't refer to worth but more like data such as strings, numbers, boolean etc). Do remember it means *intentional absence* as you will come across \`null\` many more times in JS programming.  \n  \nLike \`true\` and \`false\`, \`null\` is a special keyword recognised by the computer and doesn't have quotes.  \n  \nSomething in Javascript that is \`null\` doesn't have any _ _ _ _ _`,
       answer: ["value"],
       hint: "read the definition of null in the question",
       tags: [TAGS.datatypes, TAGS.null],
+    },
+    {
+      id: 57,
+      title: "Understanding undefined",
+      question: `[undefined](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined#Description) represents the ***unintentional absence*** of any object value.  \n  \nBoth \`undefined\` and \`null\` represents that something has no value but the key difference lies in the _ _ _ _ _ _ _ _ _ality `,
+      answer: ["intention"],
+      hint:
+        "read the definition of null (intentional absence of any object value) and undefined",
+      tags: [TAGS.datatypes, TAGS.undefined],
+    },
+    {
+      id: 58,
+      title: "Primitives",
+      question: `Out of the 6 data types, \`number\`, \`string\`, \`boolean\`, \`undefined\` and \`null\` can be considered as **primitive** data types except \`object\`.  \n  \nThe concept of primitive data types is important because their values are **immutable** which means the value *cannot be altered*  \n  \nCheck this [Good reference](https://developer.mozilla.org/en-US/docs/Glossary/Primitive) out as it has a good example of immutability  \n  \nWhich of the following data type is mutable?\nobject, string, number, boolean, null, undefined`,
+      answer: ["object", "Object"],
+      hint: "Check the reference out",
+      tags: [TAGS.datatypes, TAGS.mutability],
+    },
+    {
+      id: 59,
+      title: "Objects",
+      question: `The object data type is like a container that can store multiple key-value pairs.  \n  \nIt is identifiable by (1) outer curly braces, (2) colon between each key and value and (3) comma separated key-value pairs {key1: value1, key2: value2}  \n  \nUnlike primitive data types that can only store a single value, each key-value pair in an object can contain values like strings or even other objects!  \n  \nHow many key-value pairs can be found in \`{key1:"hello", key2:"world",four:"hi there"}\`?`,
+      answer: ["3"],
+      hint:
+        "Each key-value pair has a colon between the key and value. They are separated from other key-value pairs by commas",
+      tags: [TAGS.datatypes, TAGS.objects],
+    },
+    {
+      id: 60,
+      title: "Objects",
+      question: `Two very important concepts in Javascript that we will cover are arrays and functions.  \n  \nAt this point, just note that arrays and functions are of \`object\` data type  \n  \nThey have special features which we will explore further  \n  \nThe data type of array is _ _ _ _ _ _`,
+      answer: ["object"],
+      hint: "the answer is in the question description",
+      tags: [TAGS.datatypes, TAGS.objects],
     },
   ],
   utilities: [
     {
       id: 111,
-      title: "console logging multiple objects",
-      question: `we can log the value of multiple JS objects in a single console.log eg. console.log(1+1,'is',2)  \n   \nhow would you log the variables x and y?`,
+      title: "console logging multiple values",
+      question: `we can log the value of multiple JS values in a single console.log eg. console.log(1+1,'is',2)  \n   \nhow would you log the variables x and y?`,
       answer: ["console.log(x,y)", "console.log(y,x)"],
       hint:
         "Put the JS objects you wish to log within the round brackets of the console.log function - separated by comma",

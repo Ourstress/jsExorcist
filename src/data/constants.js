@@ -12,6 +12,9 @@ const TAGS = {
   datatypes: "Javascript data types",
   strings: "JS Strings",
   boolean: "boolean values",
-  null: "null",
+  null: "null data type",
+  undefined: "undefined data type",
+  mutability: "mutability",
+  objects: "JS objects",
 };
 export { QUESTIONSTATUS, TAGS };
