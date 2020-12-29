@@ -162,7 +162,7 @@ const questions = {
     },
     {
       id: 59,
-      title: "Objects",
+      title: "Identifying objects",
       question: `The object data type is like a container that can store multiple key-value pairs.  \n  \nIt is identifiable by (1) outer curly braces, (2) colon between each key and value and (3) comma separated key-value pairs {key1: value1, key2: value2}  \n  \nUnlike primitive data types that can only store a single value, each key-value pair in an object can contain values like strings or even other objects!  \n  \nHow many key-value pairs can be found in \`{key1:"hello", key2:"world",four:"hi there"}\`?`,
       answer: ["3"],
       hint:
@@ -171,7 +171,7 @@ const questions = {
     },
     {
       id: 60,
-      title: "Objects",
+      title: "Arrays and Functions",
       question: `Two very important concepts in Javascript that we will cover are arrays and functions.  \n  \nAt this point, just note that arrays and functions are of \`object\` data type  \n  \nThey have special features which we will explore further  \n  \nThe data type of array is _ _ _ _ _ _`,
       answer: ["object"],
       hint: "the answer is in the question description",
