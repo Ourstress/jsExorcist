@@ -16,5 +16,6 @@ const TAGS = {
   undefined: "undefined data type",
   mutability: "mutability",
   objects: "JS objects",
+  variables: "JS variables",
 };
 export { QUESTIONSTATUS, TAGS };

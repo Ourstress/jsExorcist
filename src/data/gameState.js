@@ -178,9 +178,29 @@ const questions = {
       tags: [TAGS.datatypes, TAGS.objects],
     },
   ],
-  basicObjectsArraysFunctions: [
+  variables: [
     {
       id: 71,
+      title: "Javascript keywords",
+      question: `Coding in Javascript requires us to recognise and use special keywords.  \n  \nIt is important to recognise these keywords because each keyword has a unique purpose.  \n  \nThe computer would be on the lookout for these keywords and flag an error if they are not used correctly too.  \n  \nHere is [a list of keywords](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Keywords)  \n  \nWhich of the following isn't a keyword?\n\`if\`,\`console\`,\`in\`,\`super\``,
+      answer: ["console"],
+      hint:
+        "The list of keywords in the question is sorted in alphabetical order",
+      tags: [],
+    },
+    {
+      id: 72,
+      title: "Introducing variables!",
+      question: `Variables are ***names*** for javascript values.  \n  \nImagine how difficult life would be if one day we humans suddenly stop using names...  \n  \nThe idea of variables came from maths - where we can create variables like x, y or xyz to represent mathematical values  \n  \nSimilarly, we can choose variable names as we like except [putting digits at the start or using restricted keywords](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Variables#An_aside_on_variable_naming_rules)  \n  \nWhich of these variable names are invalid?\n\`iffy\`,\`IFELSE\`,\`if\`,\`ifIletYou\`,\`99ifs\``,
+      answer: ["99ifs,if", "99ifs, if", "if,99ifs", "if, 99ifs"],
+      hint:
+        "watch out for keywords and the usage of digits at the start. Your answer should be separated by comma",
+      tags: [TAGS.variables],
+    },
+  ],
+  basicObjectsArraysFunctions: [
+    {
+      id: 91,
       title: "Object key-value pairs are its properties",
       question: `Objects store key-value pairs. Each key-value pair is a ***property*** of the object  \n  \nAnother term for key is *property name*.  \n  \nThe property name is used to retrieve its value. Eg. The colour property in {colour:"red"} is "red"  \n  \nWhat is the species property in {colour:'white',species:'maltese'}?`,
       answer: ["maltese"],
@@ -188,7 +208,7 @@ const questions = {
       tags: [TAGS.datatypes, TAGS.objects],
     },
     {
-      id: 72,
+      id: 92,
       title: "Object property names",
       question: `Objects store key-value pairs which are its properties.  \n  \nProperty names can be surrounded with quotes or without quotes eg. \`{noQuote:"red","with quotes":"blue"}\`  \n  \nNotes:multi-word property names have to be quoted  \n  \nWhich property name is incorrect in \`{dog colour:"white","species":"maltese",size:"small"}\``,
       answer: ["dog colour"],
@@ -208,6 +228,7 @@ const questions = {
     },
   ],
   // Objects: dynamic object names using [], unassigned properties are undefined - big source of errors!
+  // variables: local variables
 };
 const introQns = [
   ...questions["aboutJs"],
@@ -216,13 +237,15 @@ const introQns = [
 ];
 const bitByteQns = questions["bitBytes"];
 const dataTypeQns = questions["datatypes"];
+const variableQns = questions["variables"];
 const basicObjectsArraysFunctionQns = questions["basicObjectsArraysFunctions"];
 
 const chapterTitles = {
   chapter1: "Intro to Javascript",
   chapter2: "Bits, bytes and memory",
   chapter3: "Javascript data types",
-  chapter4: "Intro to objects, arrays and functions",
+  chapter4: "variables",
+  chapter5: "Intro to objects, arrays and functions",
 };
 
 const gameData = new Map([
@@ -256,6 +279,14 @@ const gameData = new Map([
     "chapter 4",
     {
       name: chapterTitles.chapter4,
+      story: "Next, we will look at variables which are incredibly useful!",
+      questions: variableQns,
+    },
+  ],
+  [
+    "chapter 5",
+    {
+      name: chapterTitles.chapter5,
       story:
         "Now an introduction to the harder data types - objects, arrays and functions!",
       questions: basicObjectsArraysFunctionQns,
