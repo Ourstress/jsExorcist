@@ -262,51 +262,52 @@ const chapterTitles = {
   chapter5: "Intro to objects, arrays and functions",
 };
 
-const gameData = new Map([
-  [
-    "chapter 1",
-    {
-      name: chapterTitles.chapter1,
-      story:
-        "Welcome apprentice exorcist!  \n  \nWe will start off by learning about what Javascript does and get familiar with the console.log function which we will be using frequently.",
-      questions: introQns,
-    },
-  ],
-  [
-    "chapter 2",
-    {
-      name: chapterTitles.chapter2,
-      story:
-        "Next, we will learn more about the inner working of computers such as binary numbers, bits, bytes and memory that Javascript runs on",
-      questions: bitByteQns,
-    },
-  ],
-  [
-    "chapter 3",
-    {
-      name: chapterTitles.chapter3,
-      story: "Mastery of Javascript starts with recognising data types!",
-      questions: dataTypeQns,
-    },
-  ],
-  [
-    "chapter 4",
-    {
-      name: chapterTitles.chapter4,
-      story: "Next, we will look at variables which are incredibly useful!",
-      questions: variableQns,
-    },
-  ],
-  [
-    "chapter 5",
-    {
-      name: chapterTitles.chapter5,
-      story:
-        "Now an introduction to the harder data types - objects, arrays and functions!",
-      questions: basicObjectsArraysFunctionQns,
-    },
-  ],
-]);
+const chapter1 = [
+  "chapter 1",
+  {
+    name: chapterTitles.chapter1,
+    story:
+      "Welcome apprentice exorcist!  \n  \nWe will start off by learning about what Javascript does and get familiar with the console.log function which we will be using frequently.",
+    questions: introQns,
+  },
+];
+
+const chapter2 = [
+  "chapter 2",
+  {
+    name: chapterTitles.chapter2,
+    story:
+      "Next, we will learn more about the inner working of computers such as binary numbers, bits, bytes and memory that Javascript runs on",
+    questions: bitByteQns,
+  },
+];
+const chapter3 = [
+  "chapter 3",
+  {
+    name: chapterTitles.chapter3,
+    story: "Mastery of Javascript starts with recognising data types!",
+    questions: dataTypeQns,
+  },
+];
+const chapter4 = [
+  "chapter 4",
+  {
+    name: chapterTitles.chapter4,
+    story: "Next, we will look at variables which are incredibly useful!",
+    questions: variableQns,
+  },
+];
+const chapter5 = [
+  "chapter 5",
+  {
+    name: chapterTitles.chapter5,
+    story:
+      "Now an introduction to the harder data types - objects, arrays and functions!",
+    questions: basicObjectsArraysFunctionQns,
+  },
+];
+const gameData = new Map([chapter1, chapter2, chapter3, chapter4, chapter5]);
+
 const gameState = {
   overall: {
     currentChapter: 0,
