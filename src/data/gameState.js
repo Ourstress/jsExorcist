@@ -178,6 +178,24 @@ const questions = {
       tags: [TAGS.datatypes, TAGS.objects],
     },
   ],
+  basicObjectsArraysFunctions: [
+    {
+      id: 71,
+      title: "Object key-value pairs are its properties",
+      question: `Objects store key-value pairs. Each key-value pair is a ***property*** of the object  \n  \nAnother term for key is *property name*.  \n  \nThe property name is used to retrieve its value. Eg. The colour property in {colour:"red"} is "red"  \n  \nWhat is the species property in {colour:'white',species:'maltese'}?`,
+      answer: ["maltese"],
+      hint: "Similar example: the colour property in {colour:'red'} is 'red'",
+      tags: [TAGS.datatypes, TAGS.objects],
+    },
+    {
+      id: 72,
+      title: "Object property names",
+      question: `Objects store key-value pairs which are its properties.  \n  \nProperty names can be surrounded with quotes or without quotes eg. \`{noQuote:"red","with quotes":"blue"}\`  \n  \nNotes:multi-word property names have to be quoted  \n  \nWhich property name is incorrect in \`{dog colour:"white","species":"maltese",size:"small"}\``,
+      answer: ["dog colour"],
+      hint: "multi-word property names have to be quoted",
+      tags: [TAGS.datatypes, TAGS.objects],
+    },
+  ],
   utilities: [
     {
       id: 111,
@@ -189,6 +207,7 @@ const questions = {
       tags: TAGS.consoleLog,
     },
   ],
+  // Objects: dynamic object names using [], unassigned properties are undefined - big source of errors!
 };
 const introQns = [
   ...questions["aboutJs"],
@@ -197,11 +216,13 @@ const introQns = [
 ];
 const bitByteQns = questions["bitBytes"];
 const dataTypeQns = questions["datatypes"];
+const basicObjectsArraysFunctionQns = questions["basicObjectsArraysFunctions"];
 
 const chapterTitles = {
   chapter1: "Intro to Javascript",
   chapter2: "Bits, bytes and memory",
   chapter3: "Javascript data types",
+  chapter4: "Intro to objects, arrays and functions",
 };
 
 const gameData = new Map([
@@ -227,8 +248,17 @@ const gameData = new Map([
     "chapter 3",
     {
       name: chapterTitles.chapter3,
-      story: "Mastery of Javascript starts with a grasp of the data types!",
+      story: "Mastery of Javascript starts with recognising data types!",
       questions: dataTypeQns,
+    },
+  ],
+  [
+    "chapter 4",
+    {
+      name: chapterTitles.chapter4,
+      story:
+        "Now an introduction to the harder data types - objects, arrays and functions!",
+      questions: basicObjectsArraysFunctionQns,
     },
   ],
 ]);
