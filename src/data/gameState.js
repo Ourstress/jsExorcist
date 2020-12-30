@@ -1,6 +1,7 @@
 //react-markdown line break --> two spaces followed by \n
 
 import { TAGS } from "./constants";
+import variableNamePic from "../assets/variableKeywordName.png";
 
 const questions = {
   whatIsCoding: [
@@ -186,16 +187,29 @@ const questions = {
       answer: ["console"],
       hint:
         "The list of keywords in the question is sorted in alphabetical order",
-      tags: [],
+      tags: [TAGS.keyword],
     },
     {
       id: 72,
-      title: "Introducing variables!",
+      title: "Variables are just names",
       question: `Variables are ***names*** for javascript values.  \n  \nImagine how difficult life would be if one day we humans suddenly stop using names...  \n  \nThe idea of variables came from maths - where we can create variables like x, y or xyz to represent mathematical values  \n  \nSimilarly, we can choose variable names as we like except [putting digits at the start or using restricted keywords](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Variables#An_aside_on_variable_naming_rules)  \n  \nWhich of these variable names are invalid?\n\`iffy\`,\`IFELSE\`,\`if\`,\`ifIletYou\`,\`99ifs\``,
       answer: ["99ifs,if", "99ifs, if", "if,99ifs", "if, 99ifs"],
       hint:
         "watch out for keywords and the usage of digits at the start. Your answer should be separated by comma",
       tags: [TAGS.variables],
+    },
+    {
+      id: 73,
+      title: "Declaring a variable - keyword",
+      question: `We start using variables by *declaring* them to let the computer know that they exist.  \n  \nHere we can choose to use one of three keywords - \`const\`, \`let\` or \`var\` to declare a variable.  \n  \neg.  \n\`const myVariable = 'hi there'\`  \n  \n![](${variableNamePic})  \n  \nWhen the computer sees \`const\`, \`let\` or \`var\`, it knows the next word is the new variable name.  \n  \ncan you declare a variable called greeting to be "hello!"?`,
+      answer: [
+        'var greeting = "hello"',
+        'let greeting = "hello"',
+        'const greeting = "hello"',
+      ],
+      hint:
+        'This question tests your use of variable declaration keyword and your answer should look like ??? greeting = "hello"',
+      tags: [TAGS.variables, TAGS.keyword],
     },
   ],
   basicObjectsArraysFunctions: [
@@ -228,7 +242,7 @@ const questions = {
     },
   ],
   // Objects: dynamic object names using [], unassigned properties are undefined - big source of errors!
-  // variables: local variables
+  // variables: local variables, why use let over var
 };
 const introQns = [
   ...questions["aboutJs"],

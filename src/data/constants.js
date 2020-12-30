@@ -17,5 +17,6 @@ const TAGS = {
   mutability: "mutability",
   objects: "JS objects",
   variables: "JS variables",
+  keyword: "JS keywords",
 };
 export { QUESTIONSTATUS, TAGS };
