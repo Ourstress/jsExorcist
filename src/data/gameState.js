@@ -10,8 +10,7 @@ const questions = {
       title: "What is coding all about?",
       question: `Coding is about giving our computers instructions - eg. build apps and perform tasks like interacting with websites!  \n  \nWe will be writing code in a _ _ _ _ _ _ _ _ _ _ _  language called Javascript.`,
       answer: ["programming"],
-      hint:
-        "What is the term used to describe languages like Python & Javascript?",
+      hint: "What is the term used to describe languages like Python & Javascript?",
       tags: [TAGS.whatIsCode],
     },
   ],
@@ -21,8 +20,7 @@ const questions = {
       title: "What is Javascript?",
       question: `You might have heard of programming languages like Java, Python, C etc, so what is [special about Javascript](https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/get-started/ch1.md#the-web-rules-everything-about-js)?  \n  \nJavascript is the language of the _ _ _! [For more info about Javascript's name](https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/get-started/ch1.md#whats-with-that-name)`,
       answer: ["web"],
-      hint:
-        "Javascript is powering your browser whether on desktop, mobile etc",
+      hint: "Javascript is powering your browser whether on desktop, mobile etc",
       tags: [TAGS.aboutJs],
     },
   ],
@@ -98,8 +96,7 @@ const questions = {
       title: "The need for different data types",
       question: `Think about the data we would want our code to work with... such as numbers or text.  \n  \nEg. we want to be able to do math with numbers like addition / multiplication whereas for text, we might want to convert all the letters to uppercase or lowercase.  \n  \nIn Javascript, every data has to have a data type - like \`number\` or \`string\`.  \n  \nDifferent data types support different operations.  \n  \nWhat is the data type of 123.02?`,
       answer: ["number"],
-      hint:
-        "google JS data types - be careful of capitalisation for the answer!",
+      hint: "google JS data types - be careful of capitalisation for the answer!",
       tags: [TAGS.datatypes],
     },
     {
@@ -185,8 +182,7 @@ const questions = {
       title: "Javascript keywords",
       question: `Coding in Javascript requires us to recognise and use special keywords.  \n  \nIt is important to recognise these keywords because each keyword has a unique purpose.  \n  \nThe computer would be on the lookout for these keywords and flag an error if they are not used correctly too.  \n  \nHere is [a list of keywords](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Keywords)  \n  \nWhich of the following isn't a keyword?\n\`if\`,\`console\`,\`in\`,\`super\``,
       answer: ["console"],
-      hint:
-        "The list of keywords in the question is sorted in alphabetical order",
+      hint: "The list of keywords in the question is sorted in alphabetical order",
       tags: [TAGS.keyword],
     },
   ],
@@ -335,14 +331,7 @@ const chapter6 = [
     questions: basicObjectsArraysFunctionQns,
   },
 ];
-const gameData = new Map([
-  chapter1,
-  chapter2,
-  chapter3,
-  chapter4,
-  chapter5,
-  chapter6,
-]);
+const gameData = new Map([chapter1, chapter2, chapter3, chapter4, chapter5, chapter6]);
 
 const gameState = {
   overall: {

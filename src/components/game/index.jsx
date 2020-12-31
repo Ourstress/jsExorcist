@@ -27,7 +27,7 @@ function Game(props) {
     enter: { opacity: 1 },
     leave: { opacity: 0 },
     config: {
-      duration: 3000,
+      duration: 1500,
     },
   });
   return (
