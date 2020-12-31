@@ -5,6 +5,7 @@ import variableNamePic from "../assets/variableKeywordName.png";
 
 const questions = {
   whatIsCoding: [
+    { id: 99199, title: "a", question: `b`, answer: [""], hint: "", tags: [], type: "code" },
     {
       id: 1,
       title: "What is coding all about?",
@@ -46,11 +47,7 @@ const questions = {
       id: 34,
       title: "Log something to the console!",
       question: `what is the code used to display the message "hi there" to the console?`,
-      answer: [
-        "console.log('hi there')",
-        'console.log("hi there")',
-        "console.log(`hi there`)",
-      ],
+      answer: ["console.log('hi there')", 'console.log("hi there")', "console.log(`hi there`)"],
       hint:
         "console.log displays the value of *Javascript objects* between its round brackets!  \neg. console.log(1+1) displays 2",
       tags: [TAGS.consoleLog],
@@ -120,8 +117,7 @@ const questions = {
       title: "Recognising numbers",
       question: `The number data type is used to store numerical data with or without decimal places.  \n  \nThe numbers don't need to be surrounded by quotes unlike strings.  \n  \nWhich if the following beings to the number type?\nabc,'abc',123,'123'`,
       answer: ["123"],
-      hint:
-        "number data type only store numerical data and are not surrounded by any quotes",
+      hint: "number data type only store numerical data and are not surrounded by any quotes",
       tags: [TAGS.datatypes],
     },
     {
@@ -146,8 +142,7 @@ const questions = {
       title: "Understanding undefined",
       question: `[undefined](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined#Description) represents the ***unintentional absence*** of any object value.  \n  \nBoth \`undefined\` and \`null\` represents that something has no value but the key difference lies in the _ _ _ _ _ _ _ _ _ality `,
       answer: ["intention"],
-      hint:
-        "read the definition of null (intentional absence of any object value) and undefined",
+      hint: "read the definition of null (intentional absence of any object value) and undefined",
       tags: [TAGS.datatypes, TAGS.undefined],
     },
     {
@@ -200,11 +195,7 @@ const questions = {
       id: 93,
       title: "Declaring a variable - keyword",
       question: `We start using variables by *declaring* them to let the computer know that they exist.  \n  \nHere we can choose to use one of three keywords - \`const\`, \`let\` or \`var\` to declare a variable.  \n  \neg.  \n\`const myVariable = 'hi there'\`  \n  \n![](${variableNamePic})  \n  \nWhen the computer sees \`const\`, \`let\` or \`var\`, it knows the next word is the new variable name.  \n  \ncan you declare a variable called greeting to be "hello!"?`,
-      answer: [
-        'var greeting = "hello"',
-        'let greeting = "hello"',
-        'const greeting = "hello"',
-      ],
+      answer: ['var greeting = "hello"', 'let greeting = "hello"', 'const greeting = "hello"'],
       hint:
         'This question tests your use of variable declaration keyword and your answer should look like ??? greeting = "hello"',
       tags: [TAGS.variables, TAGS.keyword],
@@ -326,8 +317,7 @@ const chapter6 = [
   "chapter 6",
   {
     name: chapterTitles.chapter6,
-    story:
-      "Now an introduction to the harder data types - objects, arrays and functions!",
+    story: "Now an introduction to the harder data types - objects, arrays and functions!",
     questions: basicObjectsArraysFunctionQns,
   },
 ];

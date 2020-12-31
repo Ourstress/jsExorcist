@@ -16,19 +16,14 @@ function useGameState(currentChapter, gameState) {
           : QUESTIONSTATUS.pending;
       });
     } else {
-      questionsClone.forEach(
-        (question) => (question.status = QUESTIONSTATUS.pending)
-      );
+      questionsClone.forEach((question) => (question.status = QUESTIONSTATUS.pending));
     }
     return questionsClone;
   };
   const [questions, updateQuestions] = useState(chapQnsLinkState());
 
   const readyNextChapter = useMemo(() => {
-    return (
-      questions.filter((question) => question.status !== QUESTIONSTATUS.correct)
-        .length === 0
-    );
+    return questions.filter((question) => question.status !== QUESTIONSTATUS.correct).length === 0;
   }, [questions]);
 
   useEffect(() => {
@@ -56,22 +51,16 @@ function useGameState(currentChapter, gameState) {
 
   useEffect(() => {
     if (
-      JSON.stringify(currentChapter.questions[0]["title"]) !==
-      JSON.stringify(questions[0]["title"])
+      JSON.stringify(currentChapter.questions[0]["title"]) !== JSON.stringify(questions[0]["title"])
     ) {
       updateQuestions(chapQnsLinkState());
     }
     // eslint-disable-next-line
   }, [currentChapter]);
 
-  const checkAnswer = (question, answerAttempt) => {
-    const answerCorrect = question.answer.includes(answerAttempt);
-    const questionToUpdate = questions.find(
-      (item) => item.title === question.title
-    );
-    const questionToUpdateIndex = questions.findIndex(
-      (item) => item.title === question.title
-    );
+  const checkAnswer = (question, answerCorrect) => {
+    const questionToUpdate = questions.find((item) => item.title === question.title);
+    const questionToUpdateIndex = questions.findIndex((item) => item.title === question.title);
     answerCorrect
       ? (questionToUpdate.status = QUESTIONSTATUS.correct)
       : (questionToUpdate.status = QUESTIONSTATUS.trying);
