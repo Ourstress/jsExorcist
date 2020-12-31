@@ -2,7 +2,16 @@ import { PauseFill, PlayFill, Check } from "react-bootstrap-icons";
 import { QUESTIONSTATUS } from "../../data/constants";
 import ReactMarkdown from "react-markdown";
 import Question from "./question";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
+const CodeBlock = ({ value }) => {
+  return (
+    <SyntaxHighlighter showLineNumbers language="javascript" styles={docco}>
+      {value}
+    </SyntaxHighlighter>
+  );
+};
 function SpriteModal(props) {
   const { modalId, modalContent, checkAnswer } = props;
 
@@ -20,7 +29,12 @@ function SpriteModal(props) {
     }
     return component;
   };
-  const question = <ReactMarkdown>{modalContent.question}</ReactMarkdown>;
+  const question = (
+    <ReactMarkdown
+      source={modalContent.question}
+      renderers={{ code: ({ value }) => <CodeBlock value={value} /> }}
+    />
+  );
 
   return (
     <div className="modal fade" id={modalId} tabIndex="-1" aria-hidden="true" aria-label="modal">

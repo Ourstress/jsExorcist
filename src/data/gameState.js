@@ -5,7 +5,16 @@ import variableNamePic from "../assets/variableKeywordName.png";
 
 const questions = {
   whatIsCoding: [
-    { id: 99199, title: "a", question: `b`, answer: [""], hint: "", tags: [], type: "code" },
+    {
+      id: 99199,
+      title: "a",
+      question: `
+      console.log('It works!')`,
+      answer: [""],
+      hint: "",
+      tags: [],
+      type: "code",
+    },
     {
       id: 1,
       title: "What is coding all about?",
