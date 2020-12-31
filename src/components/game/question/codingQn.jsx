@@ -1,9 +1,18 @@
 import { useState } from "react";
 
+const acorn = require("acorn");
+
 function CodingQn(props) {
   const { content, checkAnswer } = props;
   const [answer, setAnswer] = useState("");
   const evaluateAnswer = () => {
+    let parsedAnswer;
+    try {
+      parsedAnswer = acorn.parse(answer, { ecmaVersion: 2020 });
+    } catch (e) {
+      parsedAnswer = e.message;
+    }
+    console.log("evaledAnswer", parsedAnswer);
     const answerCorrect = content.answer.includes(answer);
     checkAnswer(content, answerCorrect);
   };
