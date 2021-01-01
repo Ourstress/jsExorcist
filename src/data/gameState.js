@@ -8,9 +8,20 @@ const questions = {
     {
       id: 99199,
       title: "a",
-      question: `
-      console.log('It works!')`,
-      answer: [""],
+      question: `If you have inline code blocks, wrap them in backticks: \`var example = true\`.  If you've got a longer block of code, you can indent with four spaces:
+
+    if (isAwesome){
+      return true
+    }
+
+GitHub also supports something called code fencing, which allows for multiple lines without indentation:
+
+\`\`\`
+if (isAwesome){
+  return true
+}
+\`\`\``,
+      answer: ["wdsd"],
       hint: "",
       tags: [],
       type: "code",
@@ -18,7 +29,7 @@ const questions = {
     {
       id: 1,
       title: "What is coding all about?",
-      question: `Coding is about giving our computers instructions - eg. build apps and perform tasks like interacting with websites!  \n  \nWe will be writing code in a _ _ _ _ _ _ _ _ _ _ _  language called Javascript.`,
+      question: `Coding is about giving our computers instructions - eg. build apps and interacting with websites!  \n  \nWe will be writing code in a _ _ _ _ _ _ _ _ _ _ _  language called Javascript.`,
       answer: ["programming"],
       hint: "What is the term used to describe languages like Python & Javascript?",
       tags: [TAGS.whatIsCode],
@@ -38,7 +49,9 @@ const questions = {
     {
       id: 31,
       title: "Meet console.log!",
-      question: `Within our code, we use the console.log function a lot to help us check that our code is working as expected!  \n  \nWhat is displayed by console.log("hello world")?`,
+      question: `The console.log function helps us check whether our code is working as expected!  \n  \nWhat is displayed by the following line of code?
+
+    console.log("hello world")`,
       answer: ["hello world"],
       hint:
         "console.log displays the value of code between its round brackets! eg. console.log(1+1) displays 2",
@@ -47,7 +60,7 @@ const questions = {
     {
       id: 33,
       title: "What is the console?",
-      question: `The [console](https://unix.stackexchange.com/questions/4126/what-is-the-exact-difference-between-a-terminal-a-shell-a-tty-and-a-con) lets us interact with our computer.  \n  \nThe Javascript console provides a log function (ie. console.log) that we can use to display the value of Javascript objects that we are interested in!  \n  \nAnother word for console is _ _ _ _ _ _ _ _`,
+      question: `***The [console](https://unix.stackexchange.com/questions/4126/what-is-the-exact-difference-between-a-terminal-a-shell-a-tty-and-a-con)*** lets us interact with our computer.  \n  \nIt provides a log function (ie. console.log) that can display Javascript values that we are interested in!  \n  \nAnother word for console is _ _ _ _ _ _ _ _`,
       answer: ["terminal"],
       hint: "Read the link supplied in the question!",
       tags: [TAGS.consoleLog],
@@ -55,7 +68,7 @@ const questions = {
     {
       id: 34,
       title: "Log something to the console!",
-      question: `what is the code used to display the message "hi there" to the console?`,
+      question: `What is the code used to display the message "hi there" to the console?`,
       answer: ["console.log('hi there')", 'console.log("hi there")', "console.log(`hi there`)"],
       hint:
         "console.log displays the value of *Javascript objects* between its round brackets!  \neg. console.log(1+1) displays 2",
