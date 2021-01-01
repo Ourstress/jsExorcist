@@ -19,4 +19,12 @@ const TAGS = {
   variables: "JS variables",
   keyword: "JS keywords",
 };
-export { QUESTIONSTATUS, TAGS };
+
+const UTILITYFNS = {
+  nestedValue: function (obj, key) {
+    return key.split(".").reduce(function (o, x) {
+      return typeof o == "undefined" || o === null ? o : o[x];
+    }, obj);
+  },
+};
+export { QUESTIONSTATUS, TAGS, UTILITYFNS };

@@ -21,7 +21,7 @@ if (isAwesome){
   return true
 }
 \`\`\``,
-      answer: ["wdsd"],
+      answer: ["nestedValue,expression.callee.object.name,console"],
       hint: "",
       tags: [],
       type: "code",

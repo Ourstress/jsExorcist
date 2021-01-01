@@ -1,19 +1,26 @@
 import { useState } from "react";
+import { UTILITYFNS } from "../../../data/constants";
 
 const acorn = require("acorn");
 
 function CodingQn(props) {
   const { content, checkAnswer } = props;
   const [answer, setAnswer] = useState("");
+
   const evaluateAnswer = () => {
     let parsedAnswer;
+    let answerCorrect;
     try {
       parsedAnswer = acorn.parse(answer, { ecmaVersion: 2020 });
+      const [checkFunction, parameter, checkValue] = content.answer[0].split(",");
+      answerCorrect = parsedAnswer.body.some((item) => {
+        return UTILITYFNS[checkFunction](item, parameter) === checkValue;
+      });
     } catch (e) {
       parsedAnswer = e.message;
+      answerCorrect = false;
     }
-    console.log("evaledAnswer", parsedAnswer);
-    const answerCorrect = content.answer.includes(answer);
+
     checkAnswer(content, answerCorrect);
   };
   return (
