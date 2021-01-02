@@ -35,7 +35,7 @@ test("return questions that combines gameState and gameData", () => {
 
 test("checkanswer changes status to in progress if answer wrong", () => {
   act(() => {
-    result.current[1](chapter1.questions[0], "wrong");
+    result.current[1](chapter1.questions[0], false);
   });
   const updatedQuestion1 = {
     ...originalChapter1.questions[0],
@@ -46,7 +46,7 @@ test("checkanswer changes status to in progress if answer wrong", () => {
 
 test("checkanswer checks for alternate answers", () => {
   act(() => {
-    result.current[1](chapter1.questions[0], "correct answer");
+    result.current[1](chapter1.questions[0], true);
   });
   const updatedQuestion1 = {
     ...originalChapter1.questions[0],
@@ -61,7 +61,7 @@ test("readyNextChapter changes to true when all questions correct", () => {
 
   act(() => {
     // this will get the question correct
-    result.current[1](chapter1.questions[0], "");
+    result.current[1](chapter1.questions[0], true);
   });
   expect(result.current[2]).toBe(true);
 });
