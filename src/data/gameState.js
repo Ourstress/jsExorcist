@@ -1,31 +1,11 @@
 //react-markdown line break --> two spaces followed by \n
+// react-markdown code block - leave blank space b4 and after and indent with four spaces
 
-import { TAGS } from "./constants";
+import { TAGS, QUESTIONTYPE } from "./constants";
 import variableNamePic from "../assets/variableKeywordName.png";
 
 const questions = {
   whatIsCoding: [
-    {
-      id: 99199,
-      title: "a",
-      question: `If you have inline code blocks, wrap them in backticks: \`var example = true\`.  If you've got a longer block of code, you can indent with four spaces:
-
-    if (isAwesome){
-      return true
-    }
-
-GitHub also supports something called code fencing, which allows for multiple lines without indentation:
-
-\`\`\`
-if (isAwesome){
-  return true
-}
-\`\`\``,
-      answer: ["nestedValue,expression.callee.object.name,console"],
-      hint: "",
-      tags: [],
-      type: "code",
-    },
     {
       id: 1,
       title: "What is coding all about?",
@@ -49,9 +29,11 @@ if (isAwesome){
     {
       id: 31,
       title: "Meet console.log!",
-      question: `The console.log function helps us check whether our code is working as expected!  \n  \nWhat is displayed by the following line of code?
+      question: `The console.log function helps us check whether our code is working as expected!  \n  \n
 
-    console.log("hello world")`,
+    console.log("hello world")
+
+What is displayed by the line of code above?`,
       answer: ["hello world"],
       hint:
         "console.log displays the value of code between its round brackets! eg. console.log(1+1) displays 2",
@@ -69,10 +51,15 @@ if (isAwesome){
       id: 34,
       title: "Log something to the console!",
       question: `What is the code used to display the message "hi there" to the console?`,
-      answer: ["console.log('hi there')", 'console.log("hi there")', "console.log(`hi there`)"],
+      answer: [
+        "nestedValue,expression.callee.object.name,console",
+        "nestedValue,expression.callee.property.name,log",
+        "arrayObjKeyValue,expression.arguments,hi there",
+      ],
       hint:
         "console.log displays the value of *Javascript objects* between its round brackets!  \neg. console.log(1+1) displays 2",
       tags: [TAGS.consoleLog],
+      type: QUESTIONTYPE.code,
     },
   ],
   bitBytes: [

@@ -26,5 +26,14 @@ const UTILITYFNS = {
       return typeof o == "undefined" || o === null ? o : o[x];
     }, obj);
   },
+  // from array of objects with key called 'value' [{key:1},{key:2}] retrieve [1,2] in string format
+  arrayObjKeyValue: function (obj, arrayLocation) {
+    const array = this.nestedValue(obj, arrayLocation);
+    return array.map((item) => item.hasOwnProperty("value") && item.value).toString();
+  },
 };
-export { QUESTIONSTATUS, TAGS, UTILITYFNS };
+
+const QUESTIONTYPE = {
+  code: "code",
+};
+export { QUESTIONSTATUS, TAGS, UTILITYFNS, QUESTIONTYPE };

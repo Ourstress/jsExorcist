@@ -12,9 +12,15 @@ function CodingQn(props) {
     let answerCorrect;
     try {
       parsedAnswer = acorn.parse(answer, { ecmaVersion: 2020 });
-      const [checkFunction, parameter, checkValue] = content.answer[0].split(",");
+      const [checkFunction0, parameter0, checkValue0] = content.answer[0].split(",");
+      const [checkFunction1, parameter1, checkValue1] = content.answer[1].split(",");
+      const [checkFunction2, parameter2, checkValue2] = content.answer[2].split(",");
       answerCorrect = parsedAnswer.body.some((item) => {
-        return UTILITYFNS[checkFunction](item, parameter) === checkValue;
+        return (
+          UTILITYFNS[checkFunction0](item, parameter0) === checkValue0 &&
+          UTILITYFNS[checkFunction1](item, parameter1) === checkValue1 &&
+          UTILITYFNS[checkFunction2](item, parameter2) === checkValue2
+        );
       });
     } catch (e) {
       parsedAnswer = e.message;
