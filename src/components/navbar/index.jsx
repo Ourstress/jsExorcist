@@ -1,13 +1,19 @@
-import { useMemo } from "react";
+import { useMemo, useState, useEffect } from "react";
 import ChapterModal from "../chaptersModal";
 
 function Navbar(props) {
   const { currentChapter, storyDisplay, toggleStoryDisplay, questions } = props;
-  const exorcisedGhosts = useMemo(() => {
-    return questions.filter(
-      (question) => question.status === "found correct answer!"
-    ).length;
+  const [exorcisedGhosts, setExorcisedGhosts] = useState(0);
+
+  const chapterExorcisedGhosts = useMemo(() => {
+    return questions.filter((question) => question.status === "found correct answer!").length;
   }, [questions]);
+
+  useEffect(() => {
+    setExorcisedGhosts(exorcisedGhosts + chapterExorcisedGhosts);
+    // eslint-disable-next-line
+  }, [chapterExorcisedGhosts]);
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
@@ -26,11 +32,7 @@ function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
             <ChapterModal currentChapter={currentChapter} />
-            <button
-              type="button"
-              className="btn"
-              onClick={() => toggleStoryDisplay(!storyDisplay)}
-            >
+            <button type="button" className="btn" onClick={() => toggleStoryDisplay(!storyDisplay)}>
               {`Progress: ${currentChapter.name}`}
             </button>
             <span style={{ padding: "0.375rem 0.75rem" }}>
