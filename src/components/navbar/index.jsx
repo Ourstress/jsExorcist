@@ -10,8 +10,7 @@ function Navbar(props) {
   }, [questions]);
 
   useEffect(() => {
-    setExorcisedGhosts(exorcisedGhosts + chapterExorcisedGhosts);
-    // eslint-disable-next-line
+    setExorcisedGhosts(chapterExorcisedGhosts);
   }, [chapterExorcisedGhosts]);
 
   return (

@@ -8,6 +8,7 @@ function Question(props) {
   const evaluateAnswer = () => {
     const answerCorrect = content.answer.includes(answer);
     checkAnswer(content, answerCorrect);
+    setAnswer("");
     const feedback = answerCorrect ? "Well done!" : "Try again!";
     setFeedback(feedback);
   };
