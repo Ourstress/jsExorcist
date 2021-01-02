@@ -4,7 +4,7 @@ import { UTILITYFNS } from "../../../data/constants";
 const acorn = require("acorn");
 
 function CodingQn(props) {
-  const { content, checkAnswer } = props;
+  const { content, checkAnswer, setFeedback } = props;
   const [answer, setAnswer] = useState("");
 
   const evaluateAnswer = () => {
@@ -22,11 +22,13 @@ function CodingQn(props) {
           UTILITYFNS[checkFunction2](item, parameter2) === checkValue2
         );
       });
+      const feedback = answerCorrect ? "Well done!" : "Try again!";
+      setFeedback(feedback);
     } catch (e) {
       parsedAnswer = e.message;
+      setFeedback(e.message);
       answerCorrect = false;
     }
-
     checkAnswer(content, answerCorrect);
   };
   return (

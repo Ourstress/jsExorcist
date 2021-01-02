@@ -2,11 +2,14 @@ import { useState } from "react";
 import CodingQn from "./codingQn";
 
 function Question(props) {
-  const { content, checkAnswer } = props;
+  const { content, checkAnswer, setFeedback } = props;
   const [answer, setAnswer] = useState("");
+
   const evaluateAnswer = () => {
     const answerCorrect = content.answer.includes(answer);
     checkAnswer(content, answerCorrect);
+    const feedback = answerCorrect ? "Well done!" : "Try again!";
+    setFeedback(feedback);
   };
   return content.type && content.type === "code" ? (
     <CodingQn {...props} />

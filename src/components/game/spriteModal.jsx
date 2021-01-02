@@ -5,7 +5,7 @@ import Question from "./question";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { docco } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 import Feedback from "./feedback";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const CodeBlock = ({ value }) => {
   return (
@@ -16,7 +16,17 @@ const CodeBlock = ({ value }) => {
 };
 function SpriteModal(props) {
   const { modalId, modalContent, checkAnswer } = props;
-  const [feedbackDisplay, setFeedbackDisplay] = useState(true);
+  const [feedbackDisplay, setFeedbackDisplay] = useState(false);
+  const [feedback, setFeedback] = useState("");
+
+  useEffect(() => {
+    setFeedbackDisplay(false);
+    setFeedback("");
+  }, [modalContent]);
+
+  useEffect(() => {
+    if (feedback !== "") setFeedbackDisplay(true);
+  }, [feedback]);
 
   const statusIcon = () => {
     let component = null;
@@ -50,8 +60,12 @@ function SpriteModal(props) {
           <div className="modal-body">
             {question}
             <hr />
-            <Question content={modalContent} checkAnswer={checkAnswer} />
-            <Feedback feedbackDisplay={feedbackDisplay} setFeedbackDisplay={setFeedbackDisplay} />
+            <Question content={modalContent} checkAnswer={checkAnswer} setFeedback={setFeedback} />
+            <Feedback
+              feedbackDisplay={feedbackDisplay}
+              setFeedbackDisplay={setFeedbackDisplay}
+              feedback={feedback}
+            />
           </div>
           <div className="modal-footer" style={{ justifyContent: "space-between" }}>
             {/* eslint-disable-next-line */}

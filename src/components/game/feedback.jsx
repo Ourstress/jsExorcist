@@ -1,15 +1,16 @@
 import { useTransition, animated } from "react-spring";
 
 function Feedback(props) {
-  const { feedbackDisplay, setFeedbackDisplay } = props;
+  const { feedbackDisplay, setFeedbackDisplay, feedback } = props;
 
   const transitions = useTransition(feedbackDisplay, null, {
     enter: { opacity: 0.9 },
     leave: { opacity: 0 },
   });
+  const feedbackButtonDisplayCondition = feedback !== "" && !feedbackDisplay;
   return (
     <>
-      {!feedbackDisplay && (
+      {feedbackButtonDisplayCondition && (
         <button
           type="button"
           className="btn btn-secondary btn-sm"
@@ -38,11 +39,7 @@ function Feedback(props) {
                   onClick={() => setFeedbackDisplay(!feedbackDisplay)}
                 ></button>
               </section>
-              <section>
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson
-                cred nesciunt sapiente ea proident.
-              </section>
+              <section>{feedback}</section>
             </animated.div>
           )
       )}
