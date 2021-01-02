@@ -4,6 +4,8 @@ import ReactMarkdown from "react-markdown";
 import Question from "./question";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { docco } from "react-syntax-highlighter/dist/cjs/styles/hljs";
+import Feedback from "./feedback";
+import { useState } from "react";
 
 const CodeBlock = ({ value }) => {
   return (
@@ -14,6 +16,7 @@ const CodeBlock = ({ value }) => {
 };
 function SpriteModal(props) {
   const { modalId, modalContent, checkAnswer } = props;
+  const [feedbackDisplay, setFeedbackDisplay] = useState(true);
 
   const statusIcon = () => {
     let component = null;
@@ -48,6 +51,7 @@ function SpriteModal(props) {
             {question}
             <hr />
             <Question content={modalContent} checkAnswer={checkAnswer} />
+            <Feedback feedbackDisplay={feedbackDisplay} setFeedbackDisplay={setFeedbackDisplay} />
           </div>
           <div className="modal-footer" style={{ justifyContent: "space-between" }}>
             {/* eslint-disable-next-line */}
