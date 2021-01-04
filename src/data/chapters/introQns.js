@@ -25,7 +25,7 @@ const questions = {
     {
       id: 31,
       title: "Meet console.log!",
-      question: `The console.log function helps us check whether our code is working as expected!  \n  \n
+      question: `The console.log function helps us check whether our code is working as expected!  \n  \nAs JS learners, the first line of code we would usually write is to display the message *hello world*.  \n  \nDo remember the console.log function because it will be used throughout your coding journey! 
   
       console.log("hello world")
   

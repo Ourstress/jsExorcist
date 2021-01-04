@@ -4,42 +4,9 @@
 import { TAGS } from "./constants";
 import variableNamePic from "../assets/variableKeywordName.png";
 import introQns from "./chapters/introQns";
+import bitByteMemoryQns from "./chapters/bitByteMemory";
 
 const questions = {
-  bitBytes: [
-    {
-      id: 41,
-      title: "The computer's alphabet",
-      question: `While the english language has 26 letters in its alphabet, the alphabet for computers is only two letters - 0 and 1  \n  \nAnother term for 0 and 1 is [binary numbers](https://en.wikipedia.org/wiki/Binary_number) which you would come across frequently too!  \n  \nWhich of the following would be recognised by the computer? - abc, 011, one1`,
-      answer: ["011"],
-      hint: "The computer only recognises binary numbers",
-      tags: [TAGS.bitBytes],
-    },
-    {
-      id: 42,
-      title: "Data and bits",
-      question: `The computer makes use of binary numbers 0 and 1 to do its job.  \n  \nIt can understand sequences of binary numbers like \`011\`, \`1001\` the way we understand \`apple\` or \`boy\` eg. an instruction to do addition looks like \`1000110010100000\`  \n  \nEach "letter" or digit in \`011\`, \`1001\` etc is called a bit.  \n  \n1000 is comprised of how many bits?`,
-      answer: ["4", "four"],
-      hint: "Each bit of information is either 0 or 1",
-      tags: [TAGS.bitBytes],
-    },
-    {
-      id: 43,
-      title: "bytes",
-      question: `To store more information, we need a sequence of bits to represent it.  \n  \nA byte is made up of 8 bits. And with 8 bits, a byte let us represent ASCII characters like small and capital english alphabet characters!  \n  \n[More info](https://web.stanford.edu/class/cs101/bits-bytes.html)  \n  \nWhat is the ASCII representation for the capital letter A?`,
-      answer: ["65", "1000001"],
-      hint: "Look up the ASCII table online",
-      tags: [TAGS.bitBytes],
-    },
-    {
-      id: 44,
-      title: "memory",
-      question: `What has bits and bytes got to do with Javascript?  \n  \nUnder the hood, our JS code gets converted to bytes that are stored in the computer hardware called [memory](https://web.stanford.edu/class/cs101/hardware-1.html).  \n  \nEach byte has its own memory address so the computer knows where different parts of the code can be found.  \n  \nJavascript _ _ _ _ _ _ _ _ _ _ _ _ _ manages memory for us - [refer to this link](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)`,
-      answer: ["automatically"],
-      hint: "refer to the link on the last line",
-      tags: [TAGS.bitBytes],
-    },
-  ],
   datatypes: [
     {
       id: 51,
@@ -204,7 +171,6 @@ const questions = {
   // variables: local variables, why use let over var
 };
 
-const bitByteQns = questions["bitBytes"];
 const dataTypeQns = questions["datatypes"];
 const operatorsAndKeywordsQns = questions["operatorsAndKeywords"];
 const variableQns = questions["variables"];
@@ -235,7 +201,7 @@ const chapter2 = [
     name: chapterTitles.chapter2,
     story:
       "Next, we will learn more about the inner working of computers such as binary numbers, bits, bytes and memory that Javascript runs on",
-    questions: bitByteQns,
+    questions: bitByteMemoryQns,
   },
 ];
 const chapter3 = [
