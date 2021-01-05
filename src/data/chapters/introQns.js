@@ -38,7 +38,7 @@ const questions = {
     {
       id: 33,
       title: "What is the console?",
-      question: `***The [console](https://unix.stackexchange.com/questions/4126/what-is-the-exact-difference-between-a-terminal-a-shell-a-tty-and-a-con)*** lets us interact with our computer.  \n  \nIt provides a log function (ie. console.log) that can display Javascript values that we are interested in!  \n  \nAnother word for console is _ _ _ _ _ _ _ _`,
+      question: `The [console](https://unix.stackexchange.com/questions/4126/what-is-the-exact-difference-between-a-terminal-a-shell-a-tty-and-a-con) lets us interact with our computer.  \n  \nIt provides a log function (ie. console.log) that can display Javascript values that we are interested in!  \n  \nAnother word for console is _ _ _ _ _ _ _ _`,
       answer: ["terminal"],
       hint: "Read the link supplied in the question!",
       tags: [TAGS.consoleLog],

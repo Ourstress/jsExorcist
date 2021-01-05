@@ -1,3 +1,15 @@
+import ReactMarkdown from "react-markdown";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { docco } from "react-syntax-highlighter/dist/cjs/styles/hljs";
+
+const CodeBlock = ({ value }) => {
+  return (
+    <SyntaxHighlighter showLineNumbers language="javascript" styles={docco}>
+      {value}
+    </SyntaxHighlighter>
+  );
+};
+
 function Chapter(props) {
   const { data } = props;
   return (
@@ -23,7 +35,12 @@ function Chapter(props) {
               aria-labelledby={"heading" + index}
               data-bs-parent="#chapterAccordion"
             >
-              <div className="accordion-body">{dataItem.content}</div>
+              <div className="accordion-body">
+                <ReactMarkdown
+                  source={dataItem.question}
+                  renderers={{ code: ({ value }) => <CodeBlock value={value} /> }}
+                />
+              </div>
             </div>
           </div>
         ))}

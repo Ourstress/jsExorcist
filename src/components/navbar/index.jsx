@@ -31,7 +31,11 @@ function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
             <ChapterModal currentChapter={currentChapter} />
-            <button type="button" className="btn" onClick={() => toggleStoryDisplay(!storyDisplay)}>
+            <button
+              type="button"
+              className="btn text-start"
+              onClick={() => toggleStoryDisplay(!storyDisplay)}
+            >
               {`Progress: ${currentChapter.name}`}
             </button>
             <span style={{ padding: "0.375rem 0.75rem" }}>

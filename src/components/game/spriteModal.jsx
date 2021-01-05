@@ -75,7 +75,7 @@ function SpriteModal(props) {
               role="button"
               data-bs-toggle="popover"
               data-bs-trigger="focus"
-              title="Dismissible popover"
+              title="Hint"
               data-bs-content={modalContent.hint}
             >
               Hint
