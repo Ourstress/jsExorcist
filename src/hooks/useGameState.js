@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect } from "react";
 import { QUESTIONSTATUS } from "../data/constants";
 
-function useGameState(currentChapter, gameState) {
+function useGameState(currentChapter, gameState, currentChapterIndex) {
   const chapQnsLinkState = () => {
     const questionsClone = JSON.parse(JSON.stringify(currentChapter.questions));
     // check gameState has at least one entry for current chapter
@@ -35,9 +35,10 @@ function useGameState(currentChapter, gameState) {
       return accumulator;
     }, {});
 
-    const toBeUpdatedState = { ...gameState };
-    if (JSON.stringify(toBeUpdatedState) !== "{}") {
+    if (JSON.stringify(gameState) !== "{}") {
       const toBeUpdatedState = { ...gameState };
+      // gameState contains overall key and chapter key
+      toBeUpdatedState.overall.currentChapter = currentChapterIndex;
       toBeUpdatedState.chapters[currentChapter.name] = updatedQuestions;
       sessionStorage.setItem(
         "gameState",

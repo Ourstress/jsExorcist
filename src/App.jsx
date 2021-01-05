@@ -10,17 +10,16 @@ import useGameState from "./hooks/useGameState";
 function App() {
   const [storyDisplay, toggleStoryDisplay] = useState(true);
 
-  const gameState =
-    JSON.parse(sessionStorage.getItem("gameState")) || defaultGameState;
-  const [
-    currentChapter,
-    currentChapterIndex,
-    setCurrentChapterIndex,
-  ] = useGameData(gameData, gameState);
+  const gameState = JSON.parse(sessionStorage.getItem("gameState")) || defaultGameState;
+  const [currentChapter, currentChapterIndex, setCurrentChapterIndex] = useGameData(
+    gameData,
+    gameState
+  );
 
   const [questions, checkAnswer, readyNextChapter] = useGameState(
     currentChapter,
-    gameState
+    gameState,
+    currentChapterIndex
   );
 
   const advanceChapter = () => {
@@ -53,11 +52,7 @@ function App() {
       <Navbar questions={questions} {...props} />
       <main className="container d-flex flex-column flex-grow-2 justify-content-between">
         <Game questions={questions} checkAnswer={checkAnswer} />
-        <Story
-          {...props}
-          advanceChapter={advanceChapter}
-          goPreviousChapter={goPreviousChapter}
-        />
+        <Story {...props} advanceChapter={advanceChapter} goPreviousChapter={goPreviousChapter} />
       </main>
     </div>
   );
