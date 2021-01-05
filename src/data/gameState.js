@@ -5,92 +5,9 @@ import { TAGS } from "./constants";
 import variableNamePic from "../assets/variableKeywordName.png";
 import introQns from "./chapters/introQns";
 import bitByteMemoryQns from "./chapters/bitByteMemory";
+import datatypeQns from "./chapters/datatypes";
 
 const questions = {
-  datatypes: [
-    {
-      id: 51,
-      title: "The need for different data types",
-      question: `Think about the data we would want our code to work with... such as numbers or text.  \n  \nEg. we want to be able to do math with numbers like addition / multiplication whereas for text, we might want to convert all the letters to uppercase or lowercase.  \n  \nIn Javascript, every data has to have a data type - like \`number\` or \`string\`.  \n  \nDifferent data types support different operations.  \n  \nWhat is the data type of 123.02?`,
-      answer: ["number"],
-      hint: "google JS data types - be careful of capitalisation for the answer!",
-      tags: [TAGS.datatypes],
-    },
-    {
-      id: 52,
-      title: "The 6 JS data types",
-      question: `Learning about the [6 data types](http://cs.millersville.edu/~trogers/csci121/2016_fall/lectures/lecture11_notes.html) in Javascript is an essential starting point.  \n  \nThey are \`number\`, \`string\`, \`boolean\`, \`object\`, \`undefined\` and \`null\`.(quick note: missing more recently added \`BigInt\` & \`Symbol\`)\n  \nA good acronym to remember them by could be NO SNUB\n  \nWhich data type does Javascript array belong to?`,
-      answer: ["Object"],
-      hint: "reference the hyperlink in the question",
-      tags: [TAGS.datatypes],
-    },
-    {
-      id: 53,
-      title: "Recognising strings",
-      question: `Strings basically store text. Text is made up of 1 or more characters.  \n  \nThe text stored in a string is surrounded by double or single quotes or backticks ie. \`"text"\` or \`'text'\` or \`\`text\`\`.  \n  \nWhy are quotes needed to surround the text stored in string?  \n  \nBecause the quotes tell the computer to treat the characters as text instead of executing them eg. \`"console.log('hello')"\` is treated as text whereas \`console.log('hello')\` is executed by the computer  \n  \nWhich of the following isn't a string?\n"hello', "hi", 'boo'`,
-      answer: [`"hello'`],
-      hint: "check the quotes and include the quotes in your answer!",
-      tags: [TAGS.datatypes, TAGS.strings],
-    },
-    {
-      id: 54,
-      title: "Recognising numbers",
-      question: `The number data type is used to store numerical data with or without decimal places.  \n  \nThe numbers don't need to be surrounded by quotes unlike strings.  \n  \nWhich if the following beings to the number type?\nabc,'abc',123,'123'`,
-      answer: ["123"],
-      hint: "number data type only store numerical data and are not surrounded by any quotes",
-      tags: [TAGS.datatypes],
-    },
-    {
-      id: 55,
-      title: "Recognising boolean values",
-      question: `Boolean values are very important to learn because they are heavily heavily used in programming.  \n  \nFirstly, boolean values in Javascript can only take either of 2 values that are opposite of each other - \`true\` or \`false\`  \n  \nas keywords that indicate boolean values, \`true\` or \`false\` are not surrounded by quotes!  \n  \nWhich is a Javascript boolean value?\nTrue, false, "true", False`,
-      answer: ["false"],
-      hint:
-        "notice the capitalisation / quotes ie. False is boolean value in Python but not in JS while 'False' is a string!",
-      tags: [TAGS.datatypes, TAGS.boolean],
-    },
-    {
-      id: 56,
-      title: "Understanding null",
-      question: `\`null\` represents the ***intentional absence*** of any value (note that value here doesn't refer to worth but more like data such as strings, numbers, boolean etc). Do remember it means *intentional absence* as you will come across \`null\` many more times in JS programming.  \n  \nLike \`true\` and \`false\`, \`null\` is a special keyword recognised by the computer and doesn't have quotes.  \n  \nSomething in Javascript that is \`null\` doesn't have any _ _ _ _ _`,
-      answer: ["value"],
-      hint: "read the definition of null in the question",
-      tags: [TAGS.datatypes, TAGS.null],
-    },
-    {
-      id: 57,
-      title: "Understanding undefined",
-      question: `[undefined](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined#Description) represents the ***unintentional absence*** of any object value.  \n  \nBoth \`undefined\` and \`null\` represents that something has no value but the key difference lies in the _ _ _ _ _ _ _ _ _ality `,
-      answer: ["intention"],
-      hint: "read the definition of null (intentional absence of any object value) and undefined",
-      tags: [TAGS.datatypes, TAGS.undefined],
-    },
-    {
-      id: 58,
-      title: "Primitives",
-      question: `Out of the 6 data types, \`number\`, \`string\`, \`boolean\`, \`undefined\` and \`null\` can be considered as **primitive** data types except \`object\`.  \n  \nThe concept of primitive data types is important because their values are **immutable** which means the value *cannot be altered*  \n  \nCheck this [Good reference](https://developer.mozilla.org/en-US/docs/Glossary/Primitive) out as it has a good example of immutability  \n  \nWhich of the following data type is mutable?\nobject, string, number, boolean, null, undefined`,
-      answer: ["object", "Object"],
-      hint: "Check the reference out",
-      tags: [TAGS.datatypes, TAGS.mutability],
-    },
-    {
-      id: 59,
-      title: "Identifying objects",
-      question: `The object data type is like a container that can store multiple key-value pairs.  \n  \nIt is identifiable by (1) outer curly braces, (2) colon between each key and value and (3) comma separated key-value pairs {key1: value1, key2: value2}  \n  \nUnlike primitive data types that can only store a single value, each key-value pair in an object can contain values like strings or even other objects!  \n  \nHow many key-value pairs can be found in \`{key1:"hello", key2:"world",four:"hi there"}\`?`,
-      answer: ["3"],
-      hint:
-        "Each key-value pair has a colon between the key and value. They are separated from other key-value pairs by commas",
-      tags: [TAGS.datatypes, TAGS.objects],
-    },
-    {
-      id: 60,
-      title: "Arrays and Functions",
-      question: `Two very important concepts in Javascript that we will cover are arrays and functions.  \n  \nAt this point, just note that arrays and functions are of \`object\` data type  \n  \nThey have special features which we will explore further  \n  \nThe data type of array is _ _ _ _ _ _`,
-      answer: ["object"],
-      hint: "the answer is in the question description",
-      tags: [TAGS.datatypes, TAGS.objects],
-    },
-  ],
   operatorsAndKeywords: [
     {
       id: 71,
@@ -171,7 +88,6 @@ const questions = {
   // variables: local variables, why use let over var
 };
 
-const dataTypeQns = questions["datatypes"];
 const operatorsAndKeywordsQns = questions["operatorsAndKeywords"];
 const variableQns = questions["variables"];
 
@@ -209,7 +125,7 @@ const chapter3 = [
   {
     name: chapterTitles.chapter3,
     story: "Mastery of Javascript starts with recognising data types!",
-    questions: dataTypeQns,
+    questions: datatypeQns,
   },
 ];
 const chapter4 = [
