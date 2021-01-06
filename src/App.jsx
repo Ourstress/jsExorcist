@@ -41,12 +41,18 @@ function App() {
   }, [readyNextChapter, gameData]);
 
   // trigger popup if close tab
-  // useEffect(() => {
-  //   window.addEventListener("beforeunload", (e) => {
-  //     e.preventDefault();
-  //     return (e.returnValue = "unload");
-  //   });
-  // });
+  useEffect(() => {
+    const inProd = process.env.NODE_ENV !== "development";
+    const handleBeforeunload = (e) => {
+      e.preventDefault();
+      // need e.returnValue
+      return (e.returnValue = "");
+    };
+    if (inProd) window.addEventListener("beforeunload", handleBeforeunload);
+    return () => {
+      if (inProd) window.removeEventListener("beforeunload", handleBeforeunload);
+    };
+  }, []);
 
   const props = { currentChapter, storyDisplay, toggleStoryDisplay };
   return (
