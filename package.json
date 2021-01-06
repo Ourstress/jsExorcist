@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^12.6.0",
     "acorn": "^8.0.4",
     "bootstrap": "^5.0.0-beta1",
+    "firebase": "^8.2.1",
     "node-sass": "^4.14.1",
     "react": "^17.0.1",
     "react-bootstrap-icons": "^1.1.0",
