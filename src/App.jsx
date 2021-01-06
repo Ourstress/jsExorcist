@@ -40,6 +40,14 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [readyNextChapter, gameData]);
 
+  // trigger popup if close tab
+  // useEffect(() => {
+  //   window.addEventListener("beforeunload", (e) => {
+  //     e.preventDefault();
+  //     return (e.returnValue = "unload");
+  //   });
+  // });
+
   const props = { currentChapter, storyDisplay, toggleStoryDisplay };
   return (
     <div
