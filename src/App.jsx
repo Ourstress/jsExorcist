@@ -8,6 +8,7 @@ import useGameData from "./hooks/useGameData.js";
 import useGameState from "./hooks/useGameState";
 import firebase from "firebase/app";
 import "firebase/firestore";
+import publicIp from "public-ip";
 
 function App() {
   const [storyDisplay, toggleStoryDisplay] = useState(true);
@@ -55,19 +56,34 @@ function App() {
     dbRef.current = firebase.firestore();
   }, []);
 
+  let ip;
+  (async () => {
+    ip = await publicIp.v4();
+  })();
+
   // trigger popup if close tab
   useEffect(() => {
     const inProd = process.env.NODE_ENV !== "development";
-    const handleBeforeunload = (e) => {
+    const handleBeforeunload = async (e) => {
       e.preventDefault();
-      dbRef.current.collection("logs").add(gameState);
+      dbRef.current.collection("logs").add({
+        ...gameState,
+        createdAt: firebase.firestore.Timestamp.fromDate(new Date()),
+        ip: ip,
+      });
       // need e.returnValue
       return (e.returnValue = "");
     };
 
-    if (inProd) window.addEventListener("beforeunload", handleBeforeunload);
+    if (inProd) {
+      window.addEventListener("beforeunload", handleBeforeunload);
+      window.addEventListener("pagehide", handleBeforeunload);
+    }
     return () => {
-      if (inProd) window.removeEventListener("beforeunload", handleBeforeunload);
+      if (inProd) {
+        window.removeEventListener("beforeunload", handleBeforeunload);
+        window.removeEventListener("pagehide", handleBeforeunload);
+      }
     };
     // eslint-disable-next-line
   }, []);
