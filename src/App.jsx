@@ -72,6 +72,7 @@ function App() {
             createdAt: firebase.firestore.Timestamp.fromDate(new Date()),
             ip: ip,
             device: window.navigator.userAgent,
+            timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
           });
     })();
     // eslint-disable-next-line
