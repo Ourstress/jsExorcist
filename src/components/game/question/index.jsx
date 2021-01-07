@@ -6,7 +6,7 @@ function Question(props) {
   const [answer, setAnswer] = useState("");
 
   const evaluateAnswer = () => {
-    const answerCorrect = content.answer.includes(answer);
+    const answerCorrect = content.answer.includes(answer.toLowerCase());
     checkAnswer(content, answerCorrect);
     setAnswer("");
     const feedback = answerCorrect ? "Well done!" : "Try again!";
