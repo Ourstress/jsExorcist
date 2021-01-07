@@ -9,6 +9,7 @@ import useGameState from "./hooks/useGameState";
 import firebase from "firebase/app";
 import "firebase/firestore";
 import publicIp from "public-ip";
+import crypto from "crypto-js";
 
 function App() {
   const [storyDisplay, toggleStoryDisplay] = useState(true);
@@ -56,37 +57,25 @@ function App() {
     dbRef.current = firebase.firestore();
   }, []);
 
-  let ip;
-  (async () => {
-    ip = await publicIp.v4();
-  })();
-
-  // trigger popup if close tab
+  const sessionKey = useRef(crypto.lib.WordArray.random(16).words.join(""));
   useEffect(() => {
     const inProd = process.env.NODE_ENV !== "development";
-    const handleBeforeunload = async (e) => {
-      e.preventDefault();
-      dbRef.current.collection("logs").add({
-        ...gameState,
-        createdAt: firebase.firestore.Timestamp.fromDate(new Date()),
-        ip: ip,
-      });
-      // need e.returnValue
-      return (e.returnValue = "");
-    };
-
-    if (inProd) {
-      window.addEventListener("beforeunload", handleBeforeunload);
-      window.addEventListener("pagehide", handleBeforeunload);
-    }
-    return () => {
-      if (inProd) {
-        window.removeEventListener("beforeunload", handleBeforeunload);
-        window.removeEventListener("pagehide", handleBeforeunload);
-      }
-    };
+    let ip;
+    (async () => {
+      ip = await publicIp.v4();
+      inProd &&
+        dbRef.current
+          .collection("logs")
+          .doc(sessionKey.current)
+          .set({
+            ...gameState,
+            createdAt: firebase.firestore.Timestamp.fromDate(new Date()),
+            ip: ip,
+            device: window.navigator.userAgent,
+          });
+    })();
     // eslint-disable-next-line
-  }, []);
+  }, [currentChapterIndex]);
 
   const props = { currentChapter, storyDisplay, toggleStoryDisplay };
   return (
