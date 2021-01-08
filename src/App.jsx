@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Game from "./components/game";
 import Story from "./components/story";
 import Navbar from "./components/navbar";
@@ -6,10 +6,8 @@ import jpMtn from "./assets/mountain_pattern.png";
 import { gameData, gameState as defaultGameState } from "./data/gameState";
 import useGameData from "./hooks/useGameData.js";
 import useGameState from "./hooks/useGameState";
-import firebase from "firebase/app";
-import "firebase/firestore";
-import publicIp from "public-ip";
-import crypto from "crypto-js";
+import useFirebase from "./hooks/useFirebase";
+import useLogs from "./hooks/useLogs";
 
 function App() {
   const [storyDisplay, toggleStoryDisplay] = useState(true);
@@ -44,39 +42,9 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [readyNextChapter, gameData]);
 
-  const dbRef = useRef(null);
-  useEffect(() => {
-    const firebaseConfig = {
-      apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-      authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-      projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-    };
-    if (!firebase.apps.length) {
-      firebase.initializeApp(firebaseConfig);
-    }
-    dbRef.current = firebase.firestore();
-  }, []);
+  const { firestore, firebase } = useFirebase();
 
-  const sessionKey = useRef(crypto.lib.WordArray.random(16).words.join(""));
-  useEffect(() => {
-    const inProd = process.env.NODE_ENV !== "development";
-    let ip;
-    (async () => {
-      ip = await publicIp.v4();
-      inProd &&
-        dbRef.current
-          .collection("logs")
-          .doc(sessionKey.current)
-          .set({
-            ...gameState,
-            createdAt: firebase.firestore.Timestamp.fromDate(new Date()),
-            ip: ip,
-            device: window.navigator.userAgent,
-            timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-          });
-    })();
-    // eslint-disable-next-line
-  }, [currentChapterIndex]);
+  useLogs(firestore, firebase, gameState, currentChapterIndex);
 
   const props = { currentChapter, storyDisplay, toggleStoryDisplay };
   return (
